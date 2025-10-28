@@ -45,7 +45,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contacts" className="relative py-20 md:py-32 bg-[#F8F9FB]">
+    <section id="contacts" className="relative py-[120px] bg-[#F8F9FB]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

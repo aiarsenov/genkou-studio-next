@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#F8F9FB]">
       <Hero />
-      <Approach />
       <Portfolio />
+      <Approach />
       <ContactForm />
       <Footer />
     </main>

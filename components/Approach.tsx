@@ -71,7 +71,7 @@ export default function Approach() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
-    <section id="clients" className="py-20 md:py-32 bg-[#F8F9FB]">
+    <section id="clients" className="py-[120px] bg-[#F8F9FB]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {approachCards.map((card, index) => (

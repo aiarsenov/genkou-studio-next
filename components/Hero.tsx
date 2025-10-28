@@ -98,23 +98,6 @@ export default function Hero() {
             </div>
           </motion.div>
         </div>
-        
-        {/* Animated Gecko #1 - Right bottom of hero */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="hidden lg:block absolute bottom-0 right-8 z-10 pointer-events-none select-none"
-        >
-          <motion.img
-            src="/images/geko glad.png"
-            alt="Happy gecko mascot"
-            className="w-40 h-auto"
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-            whileHover={{ rotate: [0, 10, -10, 0] }}
-          />
-        </motion.div>
       </div>
     </section>
   );
