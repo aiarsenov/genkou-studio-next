@@ -26,6 +26,7 @@ export default function Hero() {
             className="relative w-full aspect-square lg:aspect-[4/5] rounded-[24px] overflow-hidden shadow-lg"
             style={{
               boxShadow: '0 10px 40px rgba(0,0,0,0.08)',
+              animation: 'fadeIn 0.8s ease-in-out',
             }}
           >
             <Image
@@ -47,15 +48,16 @@ export default function Hero() {
             {/* Headings */}
             <div className="flex flex-col gap-4">
               <h1 
-                className="font-heading font-bold uppercase tracking-[0.02em] leading-[1.1] text-[#1B1B1B]"
+                className="font-heading font-bold uppercase tracking-[0.02em] leading-[1.1] text-[#111111]"
                 style={{
                   fontSize: 'clamp(48px, 6vw, 72px)',
+                  animation: 'fadeIn 0.8s ease-in-out',
                 }}
               >
                 AI PRODUCTION
               </h1>
               <h2 
-                className="font-sans font-medium uppercase tracking-[0.02em] text-[#1B1B1B] mt-4"
+                className="font-sans font-medium uppercase tracking-[0.02em] text-[#444444] mt-4"
                 style={{
                   fontSize: 'clamp(20px, 2vw, 28px)',
                 }}
@@ -66,7 +68,7 @@ export default function Hero() {
                 className="font-sans font-normal text-[#6E7580] mt-8 max-w-[520px]"
                 style={{
                   fontSize: 'clamp(16px, 1.5vw, 18px)',
-                  lineHeight: '1.6',
+                  lineHeight: '1.5',
                 }}
               >
                 Полный цикл AI-продакшна — от идеи и сценария до готового видео с моушн-дизайном и монтажом.

@@ -8,73 +8,53 @@ const projects = [
     id: 1, 
     img: '/images/cover1.jpg', 
     title: 'Проект 1',
-    colSpan: 3,
+    colSpan: 5, // горизонтальная (широкая)
     rowSpan: 2,
   },
   { 
     id: 2, 
     img: '/images/cover2.jpg', 
     title: 'Проект 2',
-    colSpan: 3,
+    colSpan: 7, // горизонтальная (рядом)
     rowSpan: 2,
   },
   { 
     id: 3, 
     img: '/images/cover3.jpg', 
     title: 'Проект 3',
-    colSpan: 4,
-    rowSpan: 3,
+    colSpan: 3, // вертикальная (высокая)
+    rowSpan: 4,
   },
   { 
     id: 4, 
     img: '/images/cover4.png', 
     title: 'Проект 4',
-    colSpan: 2,
-    rowSpan: 1,
+    colSpan: 2, // маленькая квадратная справа
+    rowSpan: 2,
   },
   { 
     id: 5, 
     img: '/images/cover5.jpg', 
     title: 'Проект 5',
-    colSpan: 3,
+    colSpan: 5, // горизонтальная
     rowSpan: 2,
   },
   { 
     id: 6, 
     img: '/images/cover6.png', 
     title: 'Проект 6',
-    colSpan: 3,
-    rowSpan: 1,
+    colSpan: 7, // горизонтальная нижняя
+    rowSpan: 2,
   },
 ];
 
 export default function Portfolio() {
   return (
-    <>
-      {/* Gecko before Portfolio */}
-      <section className="relative py-[120px] bg-white flex items-center justify-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex items-center justify-center"
-        >
-          <Image
-            src="/images/geko glad.png"
-            alt="Happy gecko mascot"
-            width={160}
-            height={160}
-            className="w-40 h-auto"
-          />
-        </motion.div>
-      </section>
-
-      <section id="portfolio" className="relative py-[120px] px-8 bg-[#F8F9FB] overflow-hidden">
+    <section id="portfolio" className="relative py-[120px] px-8 bg-[#F8F9FB] overflow-hidden">
         {/* SVG Змейка - диагональ из левого верхнего в правый нижний */}
         <svg
           className="absolute top-0 left-0 w-full h-full"
-          style={{ zIndex: 0, opacity: 0.3 }}
+          style={{ zIndex: 0 }}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1400 900"
           preserveAspectRatio="none"
@@ -86,6 +66,7 @@ export default function Portfolio() {
             fill="transparent"
             strokeLinecap="round"
             strokeLinejoin="round"
+            style={{ opacity: 0.3 }}
           />
         </svg>
 
@@ -105,8 +86,8 @@ export default function Portfolio() {
           <div 
             className="hidden sm:grid max-w-7xl mx-auto portfolio-grid"
             style={{
-              gridTemplateColumns: 'repeat(6, 1fr)',
-              gridAutoRows: '220px',
+              gridTemplateColumns: 'repeat(12, 1fr)',
+              gridAutoRows: '200px',
               gap: '28px',
             }}
           >
@@ -116,20 +97,23 @@ export default function Portfolio() {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.12, ease: 'easeOut' }}
                 style={{
                   gridColumn: `span ${project.colSpan}`,
                   gridRow: `span ${project.rowSpan}`,
+                  animation: `fadeUp 0.6s ease-out ${index * 0.12}s both`,
                 }}
                 className="portfolio-item"
               >
                 <motion.div
-                  className="relative overflow-hidden rounded-[24px] cursor-pointer group w-full h-full"
+                  className="relative overflow-hidden rounded-[24px] cursor-pointer group w-full h-full portfolio-card"
                   style={{
                     boxShadow: '0 8px 24px rgba(0, 0, 0, 0.08)',
                   }}
-                  whileHover={{ scale: 1.03 }}
-                  transition={{ duration: 0.3, ease: 'easeOut' }}
+                  whileHover={{ 
+                    y: -6,
+                    transition: { duration: 0.3, ease: 'easeOut' }
+                  }}
                 >
                   <Image
                     src={project.img}
@@ -137,10 +121,16 @@ export default function Portfolio() {
                     fill
                     className="object-cover"
                   />
+                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-[24px]" />
                   <button 
-                    className="absolute top-4 right-4 w-12 h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110 z-20"
+                    className="play-button absolute rounded-full flex items-center justify-center z-20"
                     style={{
+                      width: '52px',
+                      height: '52px',
+                      top: '20px',
+                      right: '20px',
                       background: 'rgba(255, 255, 255, 0.8)',
+                      transition: 'all 0.3s ease',
                     }}
                   >
                     <svg
@@ -232,6 +222,5 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
-    </>
   );
 }
