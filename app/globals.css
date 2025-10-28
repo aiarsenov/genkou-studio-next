@@ -100,16 +100,85 @@
   }
 }
 
+.portfolio-section {
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 1023px) {
+  .portfolio-section {
+    transform: scale(0.95);
+  }
+  
+  .portfolio-grid-desktop {
+    display: none !important;
+  }
+  
+  .portfolio-grid-tablet {
+    display: grid !important;
+  }
+  
+  .portfolio-grid-mobile {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .portfolio-section {
+    transform: scale(0.95);
+    height: auto !important;
+    minHeight: 100vh !important;
+  }
+  
+  .portfolio-grid-desktop {
+    display: none !important;
+  }
+  
+  .portfolio-grid-tablet {
+    display: none !important;
+  }
+  
+  .portfolio-grid-mobile {
+    display: grid !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-grid-desktop {
+    display: grid !important;
+  }
+  
+  .portfolio-grid-tablet {
+    display: none !important;
+  }
+  
+  .portfolio-grid-mobile {
+    display: none !important;
+  }
+}
+
 .portfolio-card {
   transition: all 0.3s ease;
+  border-radius: 24px;
 }
 
 .portfolio-card:hover {
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12) !important;
 }
 
+.play-button {
+  transition: all 0.3s ease;
+}
+
 .play-button:hover {
   transform: scale(1.1) !important;
   background: rgba(102, 211, 255, 0.2) !important;
+}
+
+.play-button:hover .play-icon {
+  transform: scale(1.15);
+}
+
+.play-icon {
+  transition: transform 0.3s ease;
 }
 
