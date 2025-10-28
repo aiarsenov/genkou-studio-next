@@ -89,6 +89,29 @@
   }
 }
 
+/* Эффект светового перелива для AI PRODUCTION */
+.ai-production {
+  position: relative;
+  display: inline-block;
+  color: #111111;
+  background: linear-gradient(90deg, #111111 0%, #7EC8FF 50%, #111111 100%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 2s ease-in-out forwards;
+}
+
+/* Эффект перелива */
+@keyframes shine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;

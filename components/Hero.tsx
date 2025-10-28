@@ -48,10 +48,9 @@ export default function Hero() {
             {/* Headings */}
             <div className="flex flex-col gap-4">
               <h1 
-                className="font-heading font-bold uppercase tracking-[0.02em] leading-[1.1] text-[#111111]"
+                className="ai-production font-heading font-bold uppercase tracking-[0.02em] leading-[1.1]"
                 style={{
                   fontSize: 'clamp(48px, 6vw, 72px)',
-                  animation: 'fadeIn 0.8s ease-in-out',
                 }}
               >
                 AI PRODUCTION
