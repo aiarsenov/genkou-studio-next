@@ -45,6 +45,7 @@ const projects = [
 export default function Portfolio() {
   return (
     <section id="portfolio" className="portfolio">
+      <h2 className="portfolio-title">Портфолио</h2>
       <div className="portfolio-grid">
         {projects.map((project) => (
           <div key={project.id} className={`card ${project.className}`}>
