@@ -1,5 +1,38 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
+
+export const roboto = localFont({
+  src: [
+    { path: "../public/fonts/Roboto-Thin.ttf", weight: "100", style: "normal" },
+    { path: "../public/fonts/Roboto-ThinItalic.ttf", weight: "100", style: "italic" },
+    { path: "../public/fonts/Roboto-Light.ttf", weight: "300", style: "normal" },
+    { path: "../public/fonts/Roboto-LightItalic.ttf", weight: "300", style: "italic" },
+    { path: "../public/fonts/Roboto-Regular.ttf", weight: "400", style: "normal" },
+    { path: "../public/fonts/Roboto-Italic.ttf", weight: "400", style: "italic" },
+    { path: "../public/fonts/Roboto-Medium.ttf", weight: "500", style: "normal" },
+    { path: "../public/fonts/Roboto-MediumItalic.ttf", weight: "500", style: "italic" },
+    { path: "../public/fonts/Roboto-Bold.ttf", weight: "700", style: "normal" },
+    { path: "../public/fonts/Roboto-BoldItalic.ttf", weight: "700", style: "italic" },
+    { path: "../public/fonts/Roboto-Black.ttf", weight: "900", style: "normal" },
+    { path: "../public/fonts/Roboto-BlackItalic.ttf", weight: "900", style: "italic" },
+  ],
+  variable: "--font-roboto",
+  display: "swap",
+});
+
+export const robotoCondensed = localFont({
+  src: [
+    { path: "../public/fonts/RobotoCondensed-Light.ttf", weight: "300", style: "normal" },
+    { path: "../public/fonts/RobotoCondensed-LightItalic.ttf", weight: "300", style: "italic" },
+    { path: "../public/fonts/RobotoCondensed-Regular.ttf", weight: "400", style: "normal" },
+    { path: "../public/fonts/RobotoCondensed-Italic.ttf", weight: "400", style: "italic" },
+    { path: "../public/fonts/RobotoCondensed-Bold.ttf", weight: "700", style: "normal" },
+    { path: "../public/fonts/RobotoCondensed-BoldItalic.ttf", weight: "700", style: "italic" },
+  ],
+  variable: "--font-roboto-condensed",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "GENKOU STUDIO — создаем креатив и моушн-графику для рекламы и мероприятий",
@@ -23,15 +56,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900;8..144,1000&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="ru" className={`${roboto.variable} ${robotoCondensed.variable}`}>
       <body className="antialiased">{children}</body>
     </html>
   );

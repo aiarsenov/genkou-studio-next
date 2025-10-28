@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-roboto-flex: 'Roboto Flex', sans-serif;
+  --font-sans: var(--font-roboto), sans-serif;
+  --font-heading: var(--font-roboto-condensed), sans-serif;
   
   --color-bg-primary: #07131C;
   --color-bg-secondary: #0F1A26;
@@ -11,16 +12,19 @@
 
 @layer base {
   :root {
-    --font-roboto-flex: 'Roboto Flex', sans-serif;
+    font-family: var(--font-roboto), sans-serif;
   }
 
   body {
     @apply bg-[#07131C] text-white font-sans;
-    font-family: var(--font-roboto-flex);
   }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-roboto-condensed), sans-serif;
   }
 
   /* SVG icons color */
