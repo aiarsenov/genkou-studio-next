@@ -8,6 +8,7 @@ export default function BlueLines() {
       <div className="line"></div>
       <div className="line"></div>
       <div className="line"></div>
+      <div className="line"></div>
     </div>
   );
 }

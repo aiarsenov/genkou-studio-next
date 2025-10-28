@@ -120,24 +120,29 @@
 /* Сетка */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
   width: 90%;
   max-width: 1400px;
   margin: 0 auto;
+  z-index: 1;
+  position: relative;
 }
 
 /* Общие стили карточек */
-.portfolio .card {
+.portfolio .card,
+.portfolio-card {
   position: relative;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
-  border-radius: 24px;
-  background: #fff;
+  border-radius: 20px;
+  background: #f8f9fa;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.portfolio .card img {
+.portfolio .card img,
+.portfolio-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -145,14 +150,16 @@
 }
 
 /* Эффект при наведении */
-.portfolio .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+.portfolio .card:hover,
+.portfolio-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   z-index: 2;
 }
 
 /* Кнопка Play */
-.portfolio .card button {
+.portfolio .card button,
+.portfolio-card button {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -170,38 +177,9 @@
   z-index: 10;
 }
 
-.portfolio .card button:hover {
+.portfolio .card button:hover,
+.portfolio-card button:hover {
   transform: scale(1.1);
-}
-
-/* Горизонтальные блоки */
-.portfolio .card-horizontal {
-  grid-column: span 6;
-  aspect-ratio: 16 / 9;
-}
-
-/* Вертикальные блоки */
-.portfolio .card-vertical {
-  grid-column: span 4;
-  aspect-ratio: 9 / 16;
-}
-
-/* Лёгкая "хаотичность" — смещения */
-.portfolio .card:nth-child(odd) {
-  transform: translateY(20px);
-}
-
-.portfolio .card:nth-child(even) {
-  transform: translateY(-20px);
-}
-
-/* При hover переопределяем transform */
-.portfolio .card:nth-child(odd):hover {
-  transform: translateY(14px);
-}
-
-.portfolio .card:nth-child(even):hover {
-  transform: translateY(-26px);
 }
 
 /* кнопка "Загрузить ещё" */
@@ -318,90 +296,92 @@
 }
 
 /* Адаптив */
-@media (max-width: 1023px) {
-  .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .portfolio .card-horizontal,
-  .portfolio .card-vertical {
-    grid-column: span 1;
-  }
-}
-
 @media (max-width: 767px) {
   .portfolio-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
   
-  .portfolio .card:nth-child(odd),
-  .portfolio .card:nth-child(even) {
-    transform: none;
+  .portfolio .card,
+  .portfolio-card {
+    aspect-ratio: 1 / 1;
   }
   
-  .portfolio .card:hover {
-    transform: translateY(-6px) !important;
+  .portfolio .card:hover,
+  .portfolio-card:hover {
+    transform: scale(1.03);
   }
 }
 
-/* Анимированные синие линии */
+/* === фоновая анимация === */
 .blue-lines {
   position: fixed;
   inset: 0;
   overflow: hidden;
-  z-index: 0;
   pointer-events: none;
+  z-index: 0;
 }
 
 .blue-lines .line {
   position: absolute;
+  width: 100%;
   height: 2px;
-  width: 100px;
-  background: linear-gradient(90deg, rgba(120,200,255,0.1), rgba(0,140,255,0.5), rgba(120,200,255,0.1));
-  border-radius: 4px;
-  filter: blur(1px);
-  opacity: 0.7;
-  animation: moveLine 12s linear infinite;
+  background: linear-gradient(90deg, transparent, rgba(126, 200, 255, 0.4), transparent);
+  animation: waveMove 12s ease-in-out infinite alternate;
 }
 
-@keyframes moveLine {
+@keyframes waveMove {
   0% {
-    transform: translate3d(-10%, -10%, 0) rotate(15deg);
+    transform: translateX(-10%) translateY(0) rotate(5deg);
   }
   50% {
-    transform: translate3d(120vw, 100vh, 0) rotate(15deg);
+    transform: translateX(10%) translateY(30px) rotate(-5deg);
   }
   100% {
-    transform: translate3d(-10%, -10%, 0) rotate(15deg);
+    transform: translateX(-10%) translateY(0) rotate(5deg);
   }
 }
 
-/* разные направления и скорости */
+/* разные скорости и позиции */
+.blue-lines .line:nth-child(1) {
+  top: 10%;
+  animation-duration: 15s;
+  animation-delay: 0s;
+}
+
 .blue-lines .line:nth-child(2) {
-  animation-delay: 2s;
+  top: 20%;
   animation-duration: 18s;
-  transform: rotate(-30deg);
-  top: 40%;
+  animation-delay: 2s;
+  transform: rotate(-10deg);
 }
 
 .blue-lines .line:nth-child(3) {
-  animation-delay: 4s;
+  top: 40%;
   animation-duration: 22s;
-  transform: rotate(45deg);
-  top: 60%;
+  animation-delay: 4s;
+  transform: rotate(8deg);
 }
 
 .blue-lines .line:nth-child(4) {
-  animation-delay: 6s;
+  top: 60%;
   animation-duration: 25s;
-  transform: rotate(-45deg);
-  top: 20%;
+  animation-delay: 1s;
+  transform: rotate(-8deg);
 }
 
 .blue-lines .line:nth-child(5) {
-  animation-delay: 1s;
-  animation-duration: 20s;
-  transform: rotate(10deg);
   top: 80%;
+  animation-duration: 20s;
+  animation-delay: 3s;
+  transform: rotate(12deg);
 }
+
+.blue-lines .line:nth-child(6) {
+  top: 50%;
+  animation-duration: 16s;
+  animation-delay: 5s;
+  transform: rotate(-12deg);
+}
+
 
