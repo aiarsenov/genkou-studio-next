@@ -201,20 +201,30 @@ export default function Portfolio() {
           ))}
         </div>
 
-        {/* Кнопка "Загрузить ещё" + геккон */}
-        <div className="flex flex-col items-center mt-20 space-y-4">
+        {/* Кнопка "Загрузить ещё" */}
+        <div className="flex flex-col items-center mt-20">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 py-3 text-[#1B1B1B] bg-white rounded-full hover:text-[#66D3FF] transition-colors font-medium"
+            className="load-more px-6 py-3 text-[#1B1B1B] bg-white rounded-full hover:text-[#66D3FF] transition-colors font-medium"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+            }}
           >
-            Загрузить ещё ↓
+            <span>Загрузить ещё</span>
+            <img 
+              src="/72114412-38dc-419f-8dae-bc4d0fab8bef.png" 
+              alt="Gecko icon" 
+              className="gecko-icon"
+              style={{
+                width: '22px',
+                height: 'auto',
+              }}
+            />
           </motion.button>
-          <img
-            src="/images/gekon 2.png"
-            alt="Gecko icon"
-            className="w-10 h-10"
-          />
         </div>
       </div>
     </section>
