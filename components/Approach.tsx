@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 const approachCards = [
   {
@@ -67,6 +68,8 @@ const approachCards = [
 ];
 
 export default function Approach() {
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+
   return (
     <section id="clients" className="py-20 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -74,11 +77,21 @@ export default function Approach() {
           {approachCards.map((card, index) => (
             <motion.div
               key={card.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-[#0C0C0C] text-white p-8 rounded-2xl"
+              whileHover={{
+                y: -8,
+                transition: { duration: 0.3, ease: 'easeOut' },
+              }}
+              onHoverStart={() => setHoveredCard(card.id)}
+              onHoverEnd={() => setHoveredCard(null)}
+              className={`bg-[#0C0C0C] text-white p-8 rounded-2xl border cursor-pointer transition-all duration-300 ${
+                hoveredCard === card.id
+                  ? 'border-white/20 shadow-[0_8px_25px_rgba(0,0,0,0.4),0_0_12px_rgba(255,255,255,0.1)]'
+                  : 'border-transparent shadow-[0_4px_15px_rgba(0,0,0,0.1)]'
+              }`}
             >
               {card.content}
             </motion.div>
