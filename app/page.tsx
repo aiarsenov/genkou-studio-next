@@ -1,15 +1,15 @@
 import Hero from '@/components/Hero';
-import Cases from '@/components/Cases';
-import Estimate from '@/components/Estimate';
+import Approach from '@/components/Approach';
+import Portfolio from '@/components/Portfolio';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-white">
       <Hero />
-      <Cases />
-      <Estimate />
+      <Approach />
+      <Portfolio />
       <ContactForm />
       <Footer />
     </main>
