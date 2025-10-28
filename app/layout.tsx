@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import BlueLines from "@/components/BlueLines";
 
 export const roboto = localFont({
   src: [
@@ -61,6 +62,7 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${roboto.variable} ${robotoCondensed.variable}`}>
       <body className="antialiased">
+        <BlueLines />
         {children}
       </body>
     </html>
