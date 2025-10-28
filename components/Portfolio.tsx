@@ -4,16 +4,16 @@ import Image from 'next/image';
 
 const projects = [
   { 
-    id: 2, 
-    img: '/images/cover2.jpg', 
-    title: 'Cover 2',
-    type: 'vertical',
-  },
-  { 
     id: 1, 
     img: '/images/cover1.jpg', 
     title: 'Cover 1',
     type: 'horizontal',
+  },
+  { 
+    id: 2, 
+    img: '/images/cover2.jpg', 
+    title: 'Cover 2',
+    type: 'vertical',
   },
   { 
     id: 3, 
