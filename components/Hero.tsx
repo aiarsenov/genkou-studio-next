@@ -47,7 +47,7 @@ export default function Hero() {
             {/* Headings */}
             <div className="flex flex-col gap-4">
               <h1 
-                className="font-heading font-bold uppercase tracking-[0.02em] leading-[1.1] text-[#0C0C0C]"
+                className="font-heading font-bold uppercase tracking-[0.02em] leading-[1.1] text-[#1B1B1B]"
                 style={{
                   fontSize: 'clamp(48px, 6vw, 72px)',
                 }}
@@ -55,7 +55,7 @@ export default function Hero() {
                 AI PRODUCTION
               </h1>
               <h2 
-                className="font-sans font-medium uppercase tracking-[0.02em] text-[#111111] mt-4"
+                className="font-sans font-medium uppercase tracking-[0.02em] text-[#1B1B1B] mt-4"
                 style={{
                   fontSize: 'clamp(20px, 2vw, 28px)',
                 }}
@@ -63,7 +63,7 @@ export default function Hero() {
                 СОЗДАЁМ КОНТЕНТ БУДУЩЕГО
               </h2>
               <p 
-                className="font-sans font-normal text-[#333333] mt-8 max-w-[520px]"
+                className="font-sans font-normal text-[#6E7580] mt-8 max-w-[520px]"
                 style={{
                   fontSize: 'clamp(16px, 1.5vw, 18px)',
                   lineHeight: '1.6',
@@ -78,20 +78,20 @@ export default function Hero() {
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
-                className="flex-1 rounded-2xl p-6 bg-[#0C0C0C] text-white"
+                className="flex-1 rounded-2xl p-6 bg-white text-[#1B1B1B] border border-[#E5E5E5] hover-neon"
               >
                 <h3 className="font-heading font-bold text-xl mb-2">3D Моушн</h3>
-                <p className="text-gray-300 text-sm">
+                <p className="text-[#6E7580] text-sm">
                   Создание 3D анимации и визуализации для рекламы и презентаций
                 </p>
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
-                className="flex-1 rounded-2xl p-6 bg-[#0C0C0C] text-white"
+                className="flex-1 rounded-2xl p-6 bg-white text-[#1B1B1B] border border-[#E5E5E5] hover-neon"
               >
                 <h3 className="font-heading font-bold text-xl mb-2">AI Видео</h3>
-                <p className="text-gray-300 text-sm">
+                <p className="text-[#6E7580] text-sm">
                   Генерация контента с использованием искусственного интеллекта
                 </p>
               </motion.div>

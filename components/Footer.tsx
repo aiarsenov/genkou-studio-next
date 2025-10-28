@@ -8,29 +8,29 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
           {/* Logo */}
-          <div className="bg-[#0C0C0C] text-white px-4 py-2 rounded-lg font-heading font-bold text-lg">
+          <div className="bg-[#1B1B1B] text-white px-4 py-2 rounded-lg font-heading font-bold text-lg">
             GENKOU
           </div>
 
           {/* Contacts */}
-          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 text-[#0C0C0C]">
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 text-[#1B1B1B]">
             <a
               href="tel:+79104320087"
-              className="hover:text-[#C62828] transition-colors font-medium"
+              className="hover:text-[#C7FF6E] hover-neon transition-all font-medium"
             >
               +7 910 432 00 87
             </a>
             <span className="hidden md:inline text-[#E5E5E5]">|</span>
             <a
               href="mailto:hello@genkoustudio.ru"
-              className="hover:text-[#C62828] transition-colors font-medium"
+              className="hover:text-[#C7FF6E] hover-neon transition-all font-medium"
             >
               hello@genkoustudio.ru
             </a>
             <span className="hidden md:inline text-[#E5E5E5]">|</span>
             <Link
               href="/privacy"
-              className="hover:text-[#C62828] transition-colors font-medium"
+              className="hover:text-[#C7FF6E] hover-neon transition-all font-medium"
             >
               Политика конфиденциальности
             </Link>

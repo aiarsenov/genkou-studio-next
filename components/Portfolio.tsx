@@ -51,7 +51,7 @@ export default function Portfolio() {
           transition={{ duration: 0.6 }}
           className="mb-20"
         >
-          <h2 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[0.02em] text-[#0C0C0C] text-center">
+          <h2 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[0.02em] text-[#1B1B1B] text-center">
             Портфолио
           </h2>
         </motion.div>
@@ -255,7 +255,7 @@ export default function Portfolio() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 py-3 text-[#0C0C0C] bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition-all font-medium"
+            className="px-6 py-3 text-[#1B1B1B] bg-white border border-gray-300 rounded-full hover:bg-[#F1F4F5] hover-neon transition-all font-medium"
           >
             Загрузить ещё ↓
           </motion.button>

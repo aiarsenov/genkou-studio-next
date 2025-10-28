@@ -49,7 +49,7 @@ export default function NavBar() {
           {/* Logo */}
           <Link
             href="/"
-            className="bg-[#0C0C0C] text-white px-4 py-2 rounded-lg font-heading font-bold text-lg hover:opacity-90 transition-opacity"
+            className="bg-[#1B1B1B] text-white px-4 py-2 rounded-lg font-heading font-bold text-lg hover:opacity-90 hover-neon transition-all"
           >
             GENKOU
           </Link>
@@ -60,15 +60,15 @@ export default function NavBar() {
               <a
                 key={item.href}
                 href={item.href}
-                className={`relative text-[#0C0C0C] font-medium transition-colors hover:text-[#C62828] ${
-                  activeSection === item.id ? 'text-[#C62828]' : ''
+                className={`relative text-[#1B1B1B] font-medium transition-colors hover:text-[#C7FF6E] hover-neon ${
+                  activeSection === item.id ? 'text-[#C7FF6E]' : ''
                 }`}
               >
                 {item.label}
                 {activeSection === item.id && (
                   <motion.div
                     layoutId="activeSection"
-                    className="absolute -bottom-1 left-0 right-0 border-b-2 border-[#C62828]"
+                    className="absolute -bottom-1 left-0 right-0 border-b-2 border-[#C7FF6E]"
                     initial={false}
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
@@ -79,7 +79,7 @@ export default function NavBar() {
               href="#contacts"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="bg-[#0C0C0C] text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-[#111111] transition-colors"
+              className="bg-[#1B1B1B] text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-[#6E7580] hover-neon transition-all"
             >
               Связаться
             </motion.a>
@@ -87,7 +87,7 @@ export default function NavBar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-[#0C0C0C] p-2"
+            className="md:hidden text-[#1B1B1B] p-2"
             aria-label="Toggle menu"
           >
             <svg
