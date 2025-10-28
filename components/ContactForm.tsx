@@ -12,9 +12,89 @@ export default function ContactForm() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errors, setErrors] = useState<{
+    phone?: string;
+    contacts?: string;
+    privacy?: string;
+  }>({});
+
+  // Маска телефона
+  const formatPhone = (value: string): string => {
+    const digits = value.replace(/\D/g, '');
+    if (digits.length === 0) return '';
+    
+    let formatted = '+7 (';
+    if (digits.length > 0) {
+      formatted += digits.substring(0, 3);
+      if (digits.length >= 4) {
+        formatted += ') ' + digits.substring(3, 6);
+      }
+      if (digits.length >= 7) {
+        formatted += '-' + digits.substring(6, 8);
+      }
+      if (digits.length >= 9) {
+        formatted += '-' + digits.substring(8, 10);
+      }
+    }
+    return formatted;
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPhone(e.target.value);
+    setFormData({ ...formData, phone: formatted });
+    // Очищаем ошибку при вводе
+    if (errors.phone) {
+      setErrors({ ...errors, phone: undefined });
+    }
+  };
+
+  // Валидация email
+  const validateEmail = (email: string): boolean => {
+    return /\S+@\S+\.\S+/.test(email);
+  };
+
+  // Проверка, является ли contacts email или другим контактом
+  const validateContacts = (contacts: string): boolean => {
+    // Если это email, проверяем регуляркой
+    if (contacts.includes('@')) {
+      return validateEmail(contacts);
+    }
+    // Для других контактов (телефон, ссылка) просто проверяем, что не пустое
+    return contacts.trim().length > 0;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Валидация
+    const newErrors: typeof errors = {};
+    
+    // Проверка телефона (должен быть заполнен полностью: +7 (___) ___-__-__ = 18 символов)
+    if (formData.phone.length < 18) {
+      newErrors.phone = 'Заполни корректно это поле';
+    }
+    
+    // Проверка контактов
+    if (!formData.contacts.trim()) {
+      newErrors.contacts = 'Заполни корректно это поле';
+    } else if (!validateContacts(formData.contacts)) {
+      newErrors.contacts = 'Введите корректный email';
+    }
+    
+    // Проверка чекбокса
+    if (!formData.privacy) {
+      newErrors.privacy = 'Подтверди согласие на обработку данных';
+    }
+    
+    // Если есть ошибки, показываем их и не отправляем форму
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      setSubmitStatus('error');
+      return;
+    }
+    
+    // Очищаем ошибки перед отправкой
+    setErrors({});
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
@@ -36,6 +116,8 @@ export default function ContactForm() {
       if (response.ok) {
         setSubmitStatus('success');
         setFormData({ phone: '', contacts: '', company: '', privacy: false });
+        setErrors({});
+        setTimeout(() => setSubmitStatus('idle'), 5000);
       } else {
         setSubmitStatus('error');
       }
@@ -43,7 +125,6 @@ export default function ContactForm() {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus('idle'), 5000);
     }
   };
 
@@ -85,23 +166,43 @@ export default function ContactForm() {
           <div>
             <input
               type="tel"
-              placeholder="Телефон *"
+              placeholder="+7 (___) ___-__-__"
               required
               value={formData.phone}
-              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full px-6 py-4 bg-white border border-[#E5E5E5] rounded-xl text-[#1B1B1B] placeholder-[#6E7580] focus:outline-none focus:border-[#66D3FF] transition-colors"
+              onChange={handlePhoneChange}
+              maxLength={18}
+              className={`w-full px-6 py-4 bg-white border rounded-xl text-[#1B1B1B] placeholder-[#6E7580] focus:outline-none transition-colors ${
+                errors.phone
+                  ? 'border-red-500 focus:border-red-500'
+                  : 'border-[#E5E5E5] focus:border-[#66D3FF]'
+              }`}
             />
+            {errors.phone && (
+              <p className="mt-2 text-sm text-red-500">{errors.phone}</p>
+            )}
           </div>
 
           <div>
             <input
               type="text"
-              placeholder="Телефон, email или ссылка на соц. сеть *"
+              placeholder="Email или ссылка на соц. сеть *"
               required
               value={formData.contacts}
-              onChange={(e) => setFormData({ ...formData, contacts: e.target.value })}
-              className="w-full px-6 py-4 bg-white border border-[#E5E5E5] rounded-xl text-[#1B1B1B] placeholder-[#6E7580] focus:outline-none focus:border-[#66D3FF] transition-colors"
+              onChange={(e) => {
+                setFormData({ ...formData, contacts: e.target.value });
+                if (errors.contacts) {
+                  setErrors({ ...errors, contacts: undefined });
+                }
+              }}
+              className={`w-full px-6 py-4 bg-white border rounded-xl text-[#1B1B1B] placeholder-[#6E7580] focus:outline-none transition-colors ${
+                errors.contacts
+                  ? 'border-red-500 focus:border-red-500'
+                  : 'border-[#E5E5E5] focus:border-[#66D3FF]'
+              }`}
             />
+            {errors.contacts && (
+              <p className="mt-2 text-sm text-red-500">{errors.contacts}</p>
+            )}
           </div>
 
           <div>
@@ -120,10 +221,17 @@ export default function ContactForm() {
               id="privacy"
               required
               checked={formData.privacy}
-              onChange={(e) => setFormData({ ...formData, privacy: e.target.checked })}
-              className="mt-1 mr-3 w-5 h-5 accent-[#66D3FF]"
+              onChange={(e) => {
+                setFormData({ ...formData, privacy: e.target.checked });
+                if (errors.privacy) {
+                  setErrors({ ...errors, privacy: undefined });
+                }
+              }}
+              className={`mt-1 mr-3 w-5 h-5 accent-[#66D3FF] ${
+                errors.privacy ? 'ring-2 ring-red-500 ring-offset-2' : ''
+              }`}
             />
-            <label htmlFor="privacy" className="text-sm text-[#6E7580]">
+            <label htmlFor="privacy" className={`text-sm ${errors.privacy ? 'text-red-500' : 'text-[#6E7580]'}`}>
               Я даю согласие на{' '}
               <a
                 href="/privacy"
@@ -134,6 +242,9 @@ export default function ContactForm() {
                 обработку персональных данных
               </a>
             </label>
+            {errors.privacy && (
+              <p className="mt-1 text-sm text-red-500 w-full">{errors.privacy}</p>
+            )}
           </div>
 
           <motion.button
@@ -147,13 +258,16 @@ export default function ContactForm() {
           </motion.button>
 
           {submitStatus === 'success' && (
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-center text-green-600"
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="text-center"
             >
-              Спасибо! Мы свяжемся с вами в ближайшее время.
-            </motion.p>
+              <p className="text-green-600 text-lg font-semibold flex items-center justify-center gap-2">
+                <span className="text-2xl">✅</span>
+                Спасибо, заявка отправлена!
+              </p>
+            </motion.div>
           )}
 
           {submitStatus === 'error' && (
