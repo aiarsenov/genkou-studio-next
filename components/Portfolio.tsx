@@ -208,7 +208,7 @@ export default function Portfolio() {
             >
               <span>Загрузить ещё</span>
               <Image 
-                src="/72114412-38dc-419f-8dae-bc4d0fab8bef.png" 
+                src="/images/gekon 2.png" 
                 alt="Gecko icon" 
                 className="gecko-icon"
                 width={22}
