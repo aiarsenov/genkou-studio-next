@@ -72,8 +72,8 @@
 .gecko-icon {
   width: 22px;
   height: auto;
-  margin-left: 8px;
   transition: transform 0.3s ease-in-out;
+  display: block;
 }
 
 .load-more:hover .gecko-icon {

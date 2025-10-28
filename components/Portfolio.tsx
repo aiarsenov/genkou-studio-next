@@ -215,10 +215,12 @@ export default function Portfolio() {
             }}
           >
             <span>Загрузить ещё</span>
-            <img 
+            <Image 
               src="/72114412-38dc-419f-8dae-bc4d0fab8bef.png" 
               alt="Gecko icon" 
               className="gecko-icon"
+              width={22}
+              height={22}
               style={{
                 width: '22px',
                 height: 'auto',
