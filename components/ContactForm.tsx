@@ -18,16 +18,19 @@ export default function ContactForm() {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    // Using Formspree
-    const formspreeEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_ID || 'your-form-id';
-
     try {
-      const response = await fetch(`https://formspree.io/f/${formspreeEndpoint}`, {
+      const response = await fetch('https://formsubmit.co/hello@genkoustudio.ru', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          phone: formData.phone,
+          contacts: formData.contacts,
+          company: formData.company,
+          _subject: 'Новая заявка с сайта GENKOU STUDIO',
+        }),
       });
 
       if (response.ok) {

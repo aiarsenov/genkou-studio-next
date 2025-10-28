@@ -236,27 +236,59 @@
   transform: translateY(-3px);
 }
 
+/* Мобильное меню */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 80%;
+  max-width: 400px;
+  padding: 80px 40px 40px;
+  box-shadow: -4px 0 24px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  z-index: 999;
+  overflow-y: auto;
+  transform: translateX(100%);
+}
+
+.mobile-menu.menu-open {
+  display: flex;
+  transform: translateX(0);
+}
+
+[aria-label="Toggle menu"].active {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+
 /* Адаптив */
 @media (max-width: 1023px) {
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   
-  .portfolio .cover2,
-  .portfolio .cover1,
-  .portfolio .cover3,
-  .portfolio .cover4,
-  .portfolio .cover5,
-  .portfolio .cover6 {
-    grid-column: auto;
-    grid-row: auto;
-    transform: none !important;
+  .portfolio .card-horizontal,
+  .portfolio .card-vertical {
+    grid-column: span 1;
   }
 }
 
 @media (max-width: 767px) {
   .portfolio-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .portfolio .card:nth-child(odd),
+  .portfolio .card:nth-child(even) {
+    transform: none;
+  }
+  
+  .portfolio .card:hover {
+    transform: translateY(-6px) !important;
   }
 }
 

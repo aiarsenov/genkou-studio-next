@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 export default function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +29,28 @@ export default function NavBar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    // Закрытие меню при клике вне его
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (isMenuOpen && !target.closest('.mobile-menu') && !target.closest('[aria-label="Toggle menu"]')) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('click', handleClickOutside);
+      document.body.style.overflow = 'hidden'; // Блокируем скролл при открытом меню
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
 
   const navItems = [
     { href: '#clients', label: 'Клиенты', id: 'clients' },
@@ -87,8 +110,9 @@ export default function NavBar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-[#1B1B1B] p-2"
+            className={`md:hidden text-[#1B1B1B] p-2 transition-transform ${isMenuOpen ? 'active' : ''}`}
             aria-label="Toggle menu"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <svg
               width="24"
@@ -100,12 +124,52 @@ export default function NavBar() {
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <line x1="3" y1="12" x2="21" y2="12" />
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <line x1="3" y1="18" x2="21" y2="18" />
+              {isMenuOpen ? (
+                <>
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </>
+              ) : (
+                <>
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <line x1="3" y1="18" x2="21" y2="18" />
+                </>
+              )}
             </svg>
           </button>
         </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div 
+            className="fixed inset-0 bg-black/50 z-[998] md:hidden"
+            onClick={() => setIsMenuOpen(false)}
+          />
+        )}
+        <nav className={`mobile-menu md:hidden ${isMenuOpen ? 'menu-open' : ''}`}>
+          <div className="flex flex-col space-y-6 mt-8">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsMenuOpen(false)}
+                className={`text-[#1B1B1B] font-medium text-lg transition-colors ${
+                  activeSection === item.id ? 'text-[#66D3FF]' : 'opacity-70 hover:opacity-100'
+                }`}
+              >
+                {item.label}
+              </a>
+            ))}
+            <a
+              href="#contacts"
+              onClick={() => setIsMenuOpen(false)}
+              className="bg-white text-[#1B1B1B] px-6 py-3 rounded-lg font-semibold hover:text-[#66D3FF] transition-colors text-center"
+            >
+              Связаться
+            </a>
+          </div>
+        </nav>
       </div>
     </motion.header>
   );
