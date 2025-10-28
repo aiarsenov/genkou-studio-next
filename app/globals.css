@@ -100,104 +100,109 @@
   }
 }
 
-/* Контейнер секции */
 .portfolio {
-  position: relative;
-  padding: 120px 0;
-  overflow: visible;
   width: 100%;
-  background: #f8fafd;
+  padding: 100px 0;
+  background: #f9fafc;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Контейнер */
+.portfolio h2 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 60px;
+  color: #111;
+  text-align: center;
+}
+
+/* сетка */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: minmax(180px, auto);
+  grid-auto-rows: minmax(200px, auto);
   gap: 24px;
   width: 90%;
   max-width: 1400px;
   margin: 0 auto;
-  align-items: start;
+  position: relative;
 }
 
-/* Карточки */
+/* карточки */
 .portfolio .card {
   position: relative;
   overflow: hidden;
-  border-radius: 20px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 24px;
   background: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .portfolio .card img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-/* наведение */
 .portfolio .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.1);
-  z-index: 3;
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  z-index: 2;
 }
 
-.portfolio .play-btn {
+/* кнопка play */
+.portfolio .card button {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  background: rgba(255,255,255,0.85);
-  border: none;
+  top: 16px;
+  right: 16px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  width: 52px;
-  height: 52px;
-  font-size: 18px;
-  transition: 0.3s ease;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   z-index: 10;
 }
 
-.portfolio .play-btn:hover {
-  background: rgba(102, 211, 255, 0.25);
+.portfolio .card button:hover {
   transform: scale(1.1);
 }
 
-/* хаотичное расположение, но без пересечений */
+/* хаотичное расположение */
 .portfolio .cover1 { 
-  grid-column: 1 / span 7; 
-  grid-row: auto; 
-}
-
-.portfolio .cover2 { 
-  grid-column: 8 / span 5; 
+  grid-column: 7 / span 6; 
   grid-row: auto; 
   transform: translateY(40px); 
 }
 
-.portfolio .cover3 { 
-  grid-column: 3 / span 6; 
+.portfolio .cover2 { 
+  grid-column: 1 / span 6; 
   grid-row: auto; 
   transform: translateY(-20px); 
 }
 
-.portfolio .cover4 { 
-  grid-column: 9 / span 4; 
+.portfolio .cover3 { 
+  grid-column: 3 / span 7; 
   grid-row: auto; 
+}
+
+.portfolio .cover4 { 
+  grid-column: 10 / span 3; 
+  grid-row: auto; 
+  transform: translateY(30px); 
 }
 
 .portfolio .cover5 { 
   grid-column: 1 / span 6; 
   grid-row: auto; 
-  transform: translateY(30px); 
+  transform: translateY(50px); 
 }
 
 .portfolio .cover6 { 
@@ -205,43 +210,32 @@
   grid-row: auto; 
 }
 
-/* Заголовок секции */
-.portfolio-title {
-  position: relative;
-  z-index: 5;
-  margin-bottom: 60px;
-  text-align: center;
-  font-size: 48px;
-  font-weight: 700;
-  color: #111;
-}
-
+/* кнопка "Загрузить ещё" */
 .portfolio .load-more {
   margin-top: 80px;
   padding: 16px 36px;
   border-radius: 50px;
   background: white;
-  font-size: 22px;
-  font-weight: 600;
   color: #111;
+  font-weight: 600;
+  font-size: 20px;
   display: flex;
   align-items: center;
   gap: 10px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-  transition: 0.3s ease;
   border: none;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
   cursor: pointer;
 }
 
 .portfolio .load-more:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 24px rgba(102, 211, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
 }
 
 .portfolio .load-more img {
   width: 24px;
-  height: auto;
-  transition: 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .portfolio .load-more:hover img {
