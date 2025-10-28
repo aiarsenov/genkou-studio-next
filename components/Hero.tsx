@@ -78,7 +78,7 @@ export default function Hero() {
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
-                className="flex-1 rounded-2xl p-6 bg-white text-[#1B1B1B] border border-[#E5E5E5] hover-neon"
+                className="flex-1 rounded-2xl p-6 bg-white text-[#1B1B1B] border border-[#E5E5E5] transition-all"
               >
                 <h3 className="font-heading font-bold text-xl mb-2">3D Моушн</h3>
                 <p className="text-[#6E7580] text-sm">
@@ -88,7 +88,7 @@ export default function Hero() {
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
-                className="flex-1 rounded-2xl p-6 bg-white text-[#1B1B1B] border border-[#E5E5E5] hover-neon"
+                className="flex-1 rounded-2xl p-6 bg-white text-[#1B1B1B] border border-[#E5E5E5] transition-all"
               >
                 <h3 className="font-heading font-bold text-xl mb-2">AI Видео</h3>
                 <p className="text-[#6E7580] text-sm">

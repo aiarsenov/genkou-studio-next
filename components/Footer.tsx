@@ -16,21 +16,21 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 text-[#1B1B1B]">
             <a
               href="tel:+79104320087"
-              className="hover:text-[#66D3FF] hover-neon transition-all font-medium"
+              className="hover:text-[#66D3FF] transition-colors font-medium"
             >
               +7 910 432 00 87
             </a>
             <span className="hidden md:inline text-[#E5E5E5]">|</span>
             <a
               href="mailto:hello@genkoustudio.ru"
-              className="hover:text-[#66D3FF] hover-neon transition-all font-medium"
+              className="hover:text-[#66D3FF] transition-colors font-medium"
             >
               hello@genkoustudio.ru
             </a>
             <span className="hidden md:inline text-[#E5E5E5]">|</span>
             <Link
               href="/privacy"
-              className="hover:text-[#66D3FF] hover-neon transition-all font-medium"
+              className="hover:text-[#66D3FF] transition-colors font-medium"
             >
               Политика конфиденциальности
             </Link>

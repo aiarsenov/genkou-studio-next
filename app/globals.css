@@ -68,26 +68,3 @@
   animation: bounce 2s infinite ease-in-out;
 }
 
-/* Blue glow effect for buttons and links */
-.neon-glow {
-  box-shadow: 0 0 20px rgba(102, 211, 255, 0.35);
-}
-
-.hover-neon:hover {
-  box-shadow: 0 0 20px rgba(102, 211, 255, 0.35);
-  transition: box-shadow 0.3s ease;
-}
-
-@keyframes tail-wag {
-  0%, 100% { 
-    transform: rotate(0deg); 
-  }
-  50% { 
-    transform: rotate(8deg); 
-  }
-}
-
-.animate-tail-wag {
-  animation: tail-wag 3s infinite ease-in-out;
-  transform-origin: center bottom;
-}

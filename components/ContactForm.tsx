@@ -58,13 +58,13 @@ export default function ContactForm() {
             ОСТАВЬТЕ ЗАЯВКУ И МЫ СДЕЛАЕМ ТАКОЙ ЖЕ КЛАССНЫЙ ПРОЕКТ
           </h2>
           <p className="text-[#6E7580]">
-            <a href="tel:+79104320087" className="hover:text-[#66D3FF] hover-neon transition-all font-medium">
+            <a href="tel:+79104320087" className="hover:text-[#66D3FF] transition-colors font-medium">
               +7 910 432 00 87
             </a>{' '}
             <span className="text-[#E5E5E5] mx-2">|</span>{' '}
             <a
               href="mailto:hello@genkoustudio.ru"
-              className="hover:text-[#66D3FF] hover-neon transition-all font-medium"
+              className="hover:text-[#66D3FF] transition-colors font-medium"
             >
               hello@genkoustudio.ru
             </a>
@@ -86,7 +86,7 @@ export default function ContactForm() {
               required
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full px-6 py-4 bg-white border border-[#E5E5E5] rounded-xl text-[#1B1B1B] placeholder-[#6E7580] focus:outline-none focus:border-[#66D3FF] focus:shadow-[0_0_20px_rgba(102,211,255,0.35)] transition-all"
+              className="w-full px-6 py-4 bg-white border border-[#E5E5E5] rounded-xl text-[#1B1B1B] placeholder-[#6E7580] focus:outline-none focus:border-[#66D3FF] transition-colors"
             />
           </div>
 
@@ -97,7 +97,7 @@ export default function ContactForm() {
               required
               value={formData.contacts}
               onChange={(e) => setFormData({ ...formData, contacts: e.target.value })}
-              className="w-full px-6 py-4 bg-white border border-[#E5E5E5] rounded-xl text-[#1B1B1B] placeholder-[#6E7580] focus:outline-none focus:border-[#66D3FF] focus:shadow-[0_0_20px_rgba(102,211,255,0.35)] transition-all"
+              className="w-full px-6 py-4 bg-white border border-[#E5E5E5] rounded-xl text-[#1B1B1B] placeholder-[#6E7580] focus:outline-none focus:border-[#66D3FF] transition-colors"
             />
           </div>
 
@@ -107,7 +107,7 @@ export default function ContactForm() {
               placeholder="Название компании"
               value={formData.company}
               onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-              className="w-full px-6 py-4 bg-white border border-[#E5E5E5] rounded-xl text-[#1B1B1B] placeholder-[#6E7580] focus:outline-none focus:border-[#66D3FF] focus:shadow-[0_0_20px_rgba(102,211,255,0.35)] transition-all"
+              className="w-full px-6 py-4 bg-white border border-[#E5E5E5] rounded-xl text-[#1B1B1B] placeholder-[#6E7580] focus:outline-none focus:border-[#66D3FF] transition-colors"
             />
           </div>
 
@@ -126,7 +126,7 @@ export default function ContactForm() {
                 href="/privacy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#66D3FF] hover:underline hover-neon transition-all"
+                className="text-[#66D3FF] hover:underline transition-colors"
               >
                 обработку персональных данных
               </a>
@@ -138,7 +138,7 @@ export default function ContactForm() {
             disabled={isSubmitting}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full py-4 bg-[#1B1B1B] text-white rounded-xl font-semibold text-lg hover:bg-[#6E7580] hover-neon transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-4 bg-white text-[#1B1B1B] rounded-xl font-semibold text-lg hover:text-[#66D3FF] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? 'Отправка...' : 'Отправить'}
           </motion.button>

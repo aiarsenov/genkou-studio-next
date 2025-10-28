@@ -49,7 +49,7 @@ export default function NavBar() {
           {/* Logo */}
           <Link
             href="/"
-            className="bg-[#1B1B1B] text-white px-4 py-2 rounded-lg font-heading font-bold text-lg hover:opacity-90 hover-neon transition-all"
+            className="bg-[#1B1B1B] text-white px-4 py-2 rounded-lg font-heading font-bold text-lg hover:opacity-90 transition-opacity"
           >
             GENKOU
           </Link>
@@ -60,8 +60,8 @@ export default function NavBar() {
               <a
                 key={item.href}
                 href={item.href}
-                className={`relative text-[#1B1B1B] font-medium transition-colors hover:text-[#66D3FF] hover-neon ${
-                  activeSection === item.id ? 'text-[#66D3FF]' : ''
+                className={`relative text-[#1B1B1B] font-medium transition-opacity opacity-70 hover:opacity-100 ${
+                  activeSection === item.id ? 'opacity-100 text-[#66D3FF]' : ''
                 }`}
               >
                 {item.label}
@@ -79,7 +79,7 @@ export default function NavBar() {
               href="#contacts"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="bg-[#1B1B1B] text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-[#6E7580] hover-neon transition-all"
+              className="bg-white text-[#1B1B1B] px-6 py-2.5 rounded-lg font-semibold hover:text-[#66D3FF] transition-colors"
             >
               Связаться
             </motion.a>

@@ -13,7 +13,7 @@ export default function PrivacyPage() {
             <p>
               Настоящая Политика конфиденциальности персональных данных (далее — Политика) действует
               в отношении всей информации, которую Оператор может получить о посетителях веб-сайта{' '}
-              <Link href="https://genkoustudio.ru" className="text-[#66D3FF] hover:underline hover-neon transition-all">
+              <Link href="https://genkoustudio.ru" className="text-[#66D3FF] hover:underline transition-colors">
                 https://genkoustudio.ru
               </Link>
               .
@@ -27,7 +27,7 @@ export default function PrivacyPage() {
             </p>
             <p>
               Настоящая Политика конфиденциальности применяется только к сайту{' '}
-              <Link href="https://genkoustudio.ru" className="text-[#66D3FF] hover:underline hover-neon transition-all">
+              <Link href="https://genkoustudio.ru" className="text-[#66D3FF] hover:underline transition-colors">
                 https://genkoustudio.ru
               </Link>
               . Сайт не контролирует и не несет ответственности за сайты третьих лиц, на которые
@@ -55,7 +55,7 @@ export default function PrivacyPage() {
           <div className="mt-12">
             <Link
               href="/"
-              className="text-[#66D3FF] hover:underline hover-neon transition-all inline-flex items-center gap-2 font-medium"
+              className="text-[#66D3FF] hover:underline transition-colors inline-flex items-center gap-2 font-medium"
             >
               ← Вернуться на главную
             </Link>
