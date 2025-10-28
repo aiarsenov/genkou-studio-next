@@ -101,7 +101,7 @@ export default function NavBar() {
 
           {/* Mobile Menu Button */}
           <button
-            className={`burger md:hidden ${isMenuOpen ? 'active' : ''}`}
+            className={`burger ${isMenuOpen ? 'active' : ''}`}
             aria-label="Toggle menu"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
@@ -114,11 +114,11 @@ export default function NavBar() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div 
-            className="fixed inset-0 bg-black/50 z-[999] md:hidden"
+            className="mobile-menu-overlay fixed inset-0 bg-black/50 z-[999]"
             onClick={() => setIsMenuOpen(false)}
           />
         )}
-        <nav className={`mobile-menu md:hidden ${isMenuOpen ? 'open' : ''}`}>
+        <nav className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
           {navItems.map((item) => (
             <a
               key={item.href}
