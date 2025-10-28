@@ -8,28 +8,29 @@ export default function Hero() {
   return (
     <section 
       id="hero" 
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-visible"
       style={{
         background: 'linear-gradient(90deg, #F8F9FB 0%, #FFFFFF 100%)',
+        height: 'auto',
       }}
     >
       <NavBar />
       
-      <div className="w-full max-w-[1920px] mx-auto px-16 lg:px-20 pt-20 pb-16">
+      <div className="w-full max-w-[1920px] mx-auto px-8 sm:px-12 lg:px-16 xl:px-20 pt-20 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-[48px] items-center min-h-[calc(100vh-5rem)]">
           {/* Left: Image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="relative w-full lg:w-full aspect-square lg:aspect-[4/5] rounded-[24px] overflow-hidden"
+            className="relative w-full aspect-square lg:aspect-[4/5] rounded-[24px] overflow-hidden shadow-lg"
             style={{
               boxShadow: '0 10px 40px rgba(0,0,0,0.08)',
             }}
           >
             <Image
-              src="/images/2025-10-28 14.34.44.jpg"
-              alt="Gecko"
+              src="/images/gecko.jpg"
+              alt="3D Gecko mascot"
               fill
               className="object-cover"
               priority
@@ -41,7 +42,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-            className="flex flex-col justify-center gap-[48px]"
+            className="flex flex-col justify-center gap-[48px] text-center lg:text-left"
           >
             {/* Headings */}
             <div className="flex flex-col gap-4">
