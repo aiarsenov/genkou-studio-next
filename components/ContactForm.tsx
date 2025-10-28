@@ -45,7 +45,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contacts" className="py-20 md:py-32 bg-white">
+    <section id="contacts" className="relative py-20 md:py-32 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -164,6 +164,31 @@ export default function ContactForm() {
           )}
         </motion.form>
       </div>
+      
+      {/* Animated Gecko #2 - Money gecko next to form */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="absolute bottom-8 left-8 z-10 hidden lg:block"
+      >
+        <motion.div
+          className="relative group cursor-pointer"
+          animate={{ scale: [1, 1.05, 1] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          title="Заполни форму — будет profit 💸"
+        >
+          <img
+            src="/images/money.png"
+            alt="Gecko with money"
+            className="w-32 h-auto select-none pointer-events-none"
+          />
+          <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-[#0C0C0C] text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            Заполни форму — будет profit 💸
+          </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

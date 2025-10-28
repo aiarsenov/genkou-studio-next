@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import FloatingGecko from "@/components/FloatingGecko";
 import "./globals.css";
 
 export const roboto = localFont({
@@ -37,6 +38,9 @@ export const robotoCondensed = localFont({
 export const metadata: Metadata = {
   title: "GENKOU STUDIO — создаем креатив и моушн-графику для рекламы и мероприятий",
   description: "НАШИ AI ВИДЕО",
+  icons: {
+    icon: '/images/site icon.png',
+  },
   openGraph: {
     title: "GENKOU STUDIO — создаем креатив и моушн-графику для рекламы и мероприятий",
     description: "НАШИ AI ВИДЕО",
@@ -57,7 +61,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" className={`${roboto.variable} ${robotoCondensed.variable}`}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        <FloatingGecko />
+      </body>
     </html>
   );
 }
