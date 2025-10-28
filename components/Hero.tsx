@@ -30,7 +30,7 @@ export default function Hero() {
             }}
           >
             <Image
-              src="/images/gecko.jpg"
+              src="/images/2025-10-28 18.00.28.jpg"
               alt="3D Gecko mascot"
               fill
               className="object-cover"
