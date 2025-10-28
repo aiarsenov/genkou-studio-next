@@ -41,7 +41,7 @@ export default function NavBar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm' : 'bg-transparent'
+        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-[0_2px_10px_rgba(0,0,0,0.05)]' : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,7 +68,7 @@ export default function NavBar() {
                 {activeSection === item.id && (
                   <motion.div
                     layoutId="activeSection"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#C62828]"
+                    className="absolute -bottom-1 left-0 right-0 border-b-2 border-[#C62828]"
                     initial={false}
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
