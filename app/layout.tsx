@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import BlueLines from "@/components/BlueLines";
+import CookieBanner from "@/components/CookieBanner";
 
 export const roboto = localFont({
   src: [
@@ -64,6 +65,7 @@ export default function RootLayout({
       <body className="antialiased">
         <BlueLines />
         {children}
+        <CookieBanner />
       </body>
     </html>
   );
