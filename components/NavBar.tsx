@@ -60,15 +60,15 @@ export default function NavBar() {
               <a
                 key={item.href}
                 href={item.href}
-                className={`relative text-[#1B1B1B] font-medium transition-colors hover:text-[#C7FF6E] hover-neon ${
-                  activeSection === item.id ? 'text-[#C7FF6E]' : ''
+                className={`relative text-[#1B1B1B] font-medium transition-colors hover:text-[#66D3FF] hover-neon ${
+                  activeSection === item.id ? 'text-[#66D3FF]' : ''
                 }`}
               >
                 {item.label}
                 {activeSection === item.id && (
                   <motion.div
                     layoutId="activeSection"
-                    className="absolute -bottom-1 left-0 right-0 border-b-2 border-[#C7FF6E]"
+                    className="absolute -bottom-1 left-0 right-0 border-b-2 border-[#66D3FF]"
                     initial={false}
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />

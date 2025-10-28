@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import FloatingGecko from "@/components/FloatingGecko";
 import "./globals.css";
 
 export const roboto = localFont({
@@ -63,7 +62,6 @@ export default function RootLayout({
     <html lang="ru" className={`${roboto.variable} ${robotoCondensed.variable}`}>
       <body className="antialiased">
         {children}
-        <FloatingGecko />
       </body>
     </html>
   );

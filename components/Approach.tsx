@@ -89,7 +89,7 @@ export default function Approach() {
               onHoverEnd={() => setHoveredCard(null)}
               className={`bg-white text-[#1B1B1B] p-8 rounded-2xl border cursor-pointer transition-all duration-300 ${
                 hoveredCard === card.id
-                  ? 'border-[#C7FF6E] shadow-[0_8px_25px_rgba(0,0,0,0.1),0_0_20px_rgba(199,255,110,0.3)]'
+                  ? 'border-[#66D3FF] shadow-[0_8px_25px_rgba(0,0,0,0.1),0_0_20px_rgba(102,211,255,0.35)]'
                   : 'border-transparent shadow-[0_4px_15px_rgba(0,0,0,0.08)]'
               }`}
             >

@@ -58,13 +58,13 @@ export default function ContactForm() {
             ОСТАВЬТЕ ЗАЯВКУ И МЫ СДЕЛАЕМ ТАКОЙ ЖЕ КЛАССНЫЙ ПРОЕКТ
           </h2>
           <p className="text-[#6E7580]">
-            <a href="tel:+79104320087" className="hover:text-[#C7FF6E] hover-neon transition-all font-medium">
+            <a href="tel:+79104320087" className="hover:text-[#66D3FF] hover-neon transition-all font-medium">
               +7 910 432 00 87
             </a>{' '}
             <span className="text-[#E5E5E5] mx-2">|</span>{' '}
             <a
               href="mailto:hello@genkoustudio.ru"
-              className="hover:text-[#C7FF6E] hover-neon transition-all font-medium"
+              className="hover:text-[#66D3FF] hover-neon transition-all font-medium"
             >
               hello@genkoustudio.ru
             </a>
@@ -86,7 +86,7 @@ export default function ContactForm() {
               required
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full px-6 py-4 bg-white border border-[#E5E5E5] rounded-xl text-[#1B1B1B] placeholder-[#6E7580] focus:outline-none focus:border-[#C7FF6E] focus:shadow-[0_0_20px_rgba(199,255,110,0.3)] transition-all"
+              className="w-full px-6 py-4 bg-white border border-[#E5E5E5] rounded-xl text-[#1B1B1B] placeholder-[#6E7580] focus:outline-none focus:border-[#66D3FF] focus:shadow-[0_0_20px_rgba(102,211,255,0.35)] transition-all"
             />
           </div>
 
@@ -97,7 +97,7 @@ export default function ContactForm() {
               required
               value={formData.contacts}
               onChange={(e) => setFormData({ ...formData, contacts: e.target.value })}
-              className="w-full px-6 py-4 bg-white border border-[#E5E5E5] rounded-xl text-[#1B1B1B] placeholder-[#6E7580] focus:outline-none focus:border-[#C7FF6E] focus:shadow-[0_0_20px_rgba(199,255,110,0.3)] transition-all"
+              className="w-full px-6 py-4 bg-white border border-[#E5E5E5] rounded-xl text-[#1B1B1B] placeholder-[#6E7580] focus:outline-none focus:border-[#66D3FF] focus:shadow-[0_0_20px_rgba(102,211,255,0.35)] transition-all"
             />
           </div>
 
@@ -107,7 +107,7 @@ export default function ContactForm() {
               placeholder="Название компании"
               value={formData.company}
               onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-              className="w-full px-6 py-4 bg-white border border-[#E5E5E5] rounded-xl text-[#1B1B1B] placeholder-[#6E7580] focus:outline-none focus:border-[#C7FF6E] focus:shadow-[0_0_20px_rgba(199,255,110,0.3)] transition-all"
+              className="w-full px-6 py-4 bg-white border border-[#E5E5E5] rounded-xl text-[#1B1B1B] placeholder-[#6E7580] focus:outline-none focus:border-[#66D3FF] focus:shadow-[0_0_20px_rgba(102,211,255,0.35)] transition-all"
             />
           </div>
 
@@ -118,7 +118,7 @@ export default function ContactForm() {
               required
               checked={formData.privacy}
               onChange={(e) => setFormData({ ...formData, privacy: e.target.checked })}
-              className="mt-1 mr-3 w-5 h-5 accent-[#C7FF6E]"
+              className="mt-1 mr-3 w-5 h-5 accent-[#66D3FF]"
             />
             <label htmlFor="privacy" className="text-sm text-[#6E7580]">
               Я даю согласие на{' '}
@@ -126,7 +126,7 @@ export default function ContactForm() {
                 href="/privacy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#C7FF6E] hover:underline hover-neon transition-all"
+                className="text-[#66D3FF] hover:underline hover-neon transition-all"
               >
                 обработку персональных данных
               </a>

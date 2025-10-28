@@ -6,8 +6,8 @@
   
   --color-primary: #1B1B1B;
   --color-secondary: #6E7580;
-  --color-accent: #C7FF6E;
-  --color-accent-secondary: #9BE36C;
+  --color-accent: #66D3FF;
+  --color-accent-secondary: #9BE3FF;
   --color-light: #FFFFFF;
   --color-bg: #F8F9FB;
   --color-hover: #F1F4F5;
@@ -16,6 +16,10 @@
 
 @layer base {
   :root {
+    --accent-blue: #66D3FF;
+    --accent-blue-light: #9BE3FF;
+    --shadow-blue: rgba(102, 211, 255, 0.35);
+    
     font-family: var(--font-roboto), sans-serif;
     letter-spacing: 0.01em;
     line-height: 1.2;
@@ -64,12 +68,26 @@
   animation: bounce 2s infinite ease-in-out;
 }
 
-/* Neon glow effect for buttons and links */
+/* Blue glow effect for buttons and links */
 .neon-glow {
-  box-shadow: 0 0 20px rgba(199, 255, 110, 0.4);
+  box-shadow: 0 0 20px rgba(102, 211, 255, 0.35);
 }
 
 .hover-neon:hover {
-  box-shadow: 0 0 20px rgba(199, 255, 110, 0.4);
+  box-shadow: 0 0 20px rgba(102, 211, 255, 0.35);
   transition: box-shadow 0.3s ease;
+}
+
+@keyframes tail-wag {
+  0%, 100% { 
+    transform: rotate(0deg); 
+  }
+  50% { 
+    transform: rotate(8deg); 
+  }
+}
+
+.animate-tail-wag {
+  animation: tail-wag 3s infinite ease-in-out;
+  transform-origin: center bottom;
 }
