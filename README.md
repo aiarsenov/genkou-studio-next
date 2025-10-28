@@ -1,36 +1,143 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GENKOU STUDIO - Next.js Landing Page
 
-## Getting Started
+Современный лендинг на Next.js 16 с TypeScript, TailwindCSS и Framer Motion.
 
-First, run the development server:
+## 🚀 Быстрый старт
+
+### Установка зависимостей
+
+```bash
+npm install
+```
+
+### Локальный запуск
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Откройте [http://localhost:3000](http://localhost:3000) в браузере.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Сборка для продакшена
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## 📋 Структура проекта
 
-To learn more about Next.js, take a look at the following resources:
+```
+genkou-studio-next/
+├── app/                    # Next.js App Router
+│   ├── layout.tsx         # Главный layout
+│   ├── page.tsx           # Главная страница
+│   └── globals.css        # Глобальные стили
+├── components/            # React компоненты
+│   ├── Header.tsx         # Шапка сайта с меню
+│   ├── Hero.tsx           # Hero-секция с видео
+│   ├── Cases.tsx          # Секция кейсов
+│   ├── Estimate.tsx       # Условия работы
+│   ├── ContactForm.tsx    # Форма обратной связи
+│   └── Footer.tsx         # Футер
+├── public/                # Статические файлы
+│   └── images/           # Изображения
+└── vercel.json           # Конфигурация Vercel
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔧 Настройка
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Formspree (для формы обратной связи)
 
-## Deploy on Vercel
+1. Создайте аккаунт на [Formspree](https://formspree.io)
+2. Создайте новую форму и скопируйте Form ID
+3. Создайте файл `.env.local`:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```env
+NEXT_PUBLIC_FORMSPREE_ID=your-formspree-form-id
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Альтернатива: EmailJS
+
+Если хотите использовать EmailJS вместо Formspree, обновите `components/ContactForm.tsx`:
+
+```typescript
+const response = await emailjs.send(
+  'YOUR_SERVICE_ID',
+  'YOUR_TEMPLATE_ID',
+  formData,
+  'YOUR_PUBLIC_KEY'
+);
+```
+
+## 🎨 Цветовая схема
+
+- Фон: `#07131C` (темно-синий)
+- Акцент: `#D7FB72` (желто-зеленый)
+- SVG иконки: `#C62828` (красный)
+- Вторичный фон: `#0F1A26`
+
+## 📦 Технологии
+
+- **Next.js 16** - React фреймворк
+- **TypeScript** - типизация
+- **TailwindCSS 4** - стилизация
+- **Framer Motion** - анимации
+- **Next/Image** - оптимизация изображений
+
+## 🚢 Деплой на Vercel
+
+### Автоматический деплой через GitHub
+
+1. Создайте репозиторий на GitHub
+2. Подключите проект к Vercel:
+   ```bash
+   # Установите Vercel CLI
+   npm i -g vercel
+   
+   # Войдите в аккаунт
+   vercel login
+   
+   # Задеплойте проект
+   vercel
+   ```
+
+3. Или подключите GitHub репозиторий через [Vercel Dashboard](https://vercel.com)
+
+### Настройки деплоя
+
+- **Framework Preset**: Next.js
+- **Build Command**: `npm run build`
+- **Output Directory**: `.next`
+- **Node Version**: 20.x
+- **Install Command**: `npm install`
+
+### Переменные окружения
+
+В настройках проекта на Vercel добавьте:
+
+```
+NEXT_PUBLIC_FORMSPREE_ID=your-formspree-form-id
+```
+
+## 📝 Особенности
+
+- ✅ SSR/SSG оптимизация
+- ✅ Адаптивный дизайн (mobile-first)
+- ✅ Плавные анимации с Framer Motion
+- ✅ Оптимизация изображений через next/image
+- ✅ SEO оптимизация
+- ✅ Форма обратной связи
+- ✅ Модальные окна для кейсов
+- ✅ Плавная прокрутка
+- ✅ Темная тема
+
+## 📞 Контакты
+
+- Телефон: +7 910 432 00 87
+- Email: hello@genkoustudio.ru
+- Сайт: https://genkoustudio.ru
+
+## 📄 Лицензия
+
+© 2024 GENKOU STUDIO. Все права защищены.
