@@ -100,85 +100,146 @@
   }
 }
 
-.portfolio-section {
-  transition: transform 0.3s ease;
+.portfolio {
+  width: 100%;
+  background: #f8fafd;
+  padding: 120px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 220px;
+  gap: 28px;
+  width: 90%;
+  max-width: 1400px;
+}
+
+.portfolio .card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.portfolio .card:hover {
+  transform: translateY(-6px) scale(1.03);
+}
+
+.portfolio .play-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.85);
+  border: none;
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  font-size: 18px;
+  transition: 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.portfolio .play-btn:hover {
+  background: rgba(102, 211, 255, 0.25);
+  transform: scale(1.1);
+}
+
+/* Индивидуальное позиционирование карточек */
+.portfolio .cover2 { 
+  grid-column: 1 / span 6; 
+  grid-row: 1 / span 3; 
+  transform: translateY(-20px); 
+}
+
+.portfolio .cover1 { 
+  grid-column: 7 / span 6; 
+  grid-row: 2 / span 3; 
+  transform: translateY(40px); 
+}
+
+.portfolio .cover3 { 
+  grid-column: 3 / span 8; 
+  grid-row: 4 / span 3; 
+}
+
+.portfolio .cover4 { 
+  grid-column: 11 / span 2; 
+  grid-row: 4 / span 2; 
+}
+
+.portfolio .cover5 { 
+  grid-column: 1 / span 7; 
+  grid-row: 6 / span 3; 
+}
+
+.portfolio .cover6 { 
+  grid-column: 8 / span 5; 
+  grid-row: 5 / span 3; 
+  transform: translateY(-20px); 
+}
+
+.portfolio .load-more {
+  margin-top: 80px;
+  padding: 16px 36px;
+  border-radius: 50px;
+  background: white;
+  font-size: 22px;
+  font-weight: 600;
+  color: #111;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.portfolio .load-more:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(102, 211, 255, 0.3);
+}
+
+.portfolio .load-more img {
+  width: 24px;
+  height: auto;
+  transition: 0.3s ease;
+}
+
+.portfolio .load-more:hover img {
+  transform: translateY(-3px);
+}
+
+/* Адаптив */
 @media (max-width: 1023px) {
-  .portfolio-section {
-    transform: scale(0.95);
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   
-  .portfolio-grid-desktop {
-    display: none !important;
-  }
-  
-  .portfolio-grid-tablet {
-    display: grid !important;
-  }
-  
-  .portfolio-grid-mobile {
-    display: none !important;
+  .portfolio .cover2,
+  .portfolio .cover1,
+  .portfolio .cover3,
+  .portfolio .cover4,
+  .portfolio .cover5,
+  .portfolio .cover6 {
+    grid-column: auto;
+    grid-row: auto;
+    transform: none !important;
   }
 }
 
 @media (max-width: 767px) {
-  .portfolio-section {
-    transform: scale(0.95);
-    height: auto !important;
-    minHeight: 100vh !important;
+  .portfolio-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .portfolio-grid-desktop {
-    display: none !important;
-  }
-  
-  .portfolio-grid-tablet {
-    display: none !important;
-  }
-  
-  .portfolio-grid-mobile {
-    display: grid !important;
-  }
-}
-
-@media (min-width: 1024px) {
-  .portfolio-grid-desktop {
-    display: grid !important;
-  }
-  
-  .portfolio-grid-tablet {
-    display: none !important;
-  }
-  
-  .portfolio-grid-mobile {
-    display: none !important;
-  }
-}
-
-.portfolio-card {
-  transition: all 0.3s ease;
-  border-radius: 24px;
-}
-
-.portfolio-card:hover {
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12) !important;
-}
-
-.play-button {
-  transition: all 0.3s ease;
-}
-
-.play-button:hover {
-  transform: scale(1.1) !important;
-  background: rgba(102, 211, 255, 0.2) !important;
-}
-
-.play-button:hover .play-icon {
-  transform: scale(1.15);
-}
-
-.play-icon {
-  transition: transform 0.3s ease;
 }
 
