@@ -54,6 +54,7 @@ export default function Portfolio() {
               alt={project.title}
               fill
               className="object-cover"
+              style={{ objectFit: 'cover' }}
             />
             <button className="play-btn">▶</button>
           </div>
