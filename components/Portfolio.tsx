@@ -21,7 +21,7 @@ const projects = [
     id: 3, 
     img: '/images/cover3.jpg', 
     title: 'Cover 3',
-    videoId: null, // Нет видео
+    videoId: '1112959812', // https://vimeo.com/1112959812
   },
   { 
     id: 4, 
@@ -39,7 +39,7 @@ const projects = [
     id: 6, 
     img: '/images/cover6.png', 
     title: 'Cover 6',
-    videoId: '1112959812', // https://vimeo.com/1112959812
+    videoId: '1131371883', // https://vimeo.com/1131371883
   },
 ];
 
