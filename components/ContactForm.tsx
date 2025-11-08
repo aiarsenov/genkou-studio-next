@@ -301,7 +301,7 @@ export default function ContactForm() {
             alt="Gecko with money"
             className="w-32 h-auto select-none pointer-events-none"
           />
-          <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-[#1B1B1B] text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
+          <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-[#1B1B1B] text-white px-4 py-2 rounded-lg text-sm text-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg max-w-[240px]">
             Заполни форму — будет profit 💸
           </div>
         </motion.div>
