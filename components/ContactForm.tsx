@@ -20,7 +20,20 @@ export default function ContactForm() {
 
   // Маска телефона
   const formatPhone = (value: string): string => {
-    const digits = value.replace(/\D/g, '');
+    let digits = value.replace(/\D/g, '');
+
+    if (digits.startsWith('8')) {
+      digits = digits.substring(1);
+    }
+
+    if (digits.startsWith('7')) {
+      digits = digits.substring(1);
+    }
+
+    if (digits.length > 10) {
+      digits = digits.slice(-10);
+    }
+
     if (digits.length === 0) return '';
     
     let formatted = '+7 (';
