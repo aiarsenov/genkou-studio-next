@@ -14,7 +14,7 @@ export default function NavBar() {
       setIsScrolled(window.scrollY > 50);
       
       // Determine active section
-      const sections = ['hero', 'clients', 'portfolio', 'contacts'];
+      const sections = ['hero', 'portfolio', 'contacts'];
       const scrollPosition = window.scrollY + 100;
       
       for (const section of sections.reverse()) {
@@ -44,9 +44,9 @@ export default function NavBar() {
   }, [isMenuOpen]);
 
   const navItems = [
-    { href: '#clients', label: 'Клиенты', id: 'clients' },
     { href: '#portfolio', label: 'Портфолио', id: 'portfolio' },
     { href: '#contacts', label: 'Контакты', id: 'contacts' },
+    { href: '#', label: 'Обучение', id: 'education', disabled: true },
   ];
 
   return (
@@ -63,9 +63,10 @@ export default function NavBar() {
           {/* Logo */}
           <Link
             href="/"
-            className="bg-[#1B1B1B] text-white px-4 py-2 rounded-lg font-heading font-bold text-lg hover:opacity-90 transition-opacity"
+            className="flex items-center gap-2 bg-[#1B1B1B] text-white pl-5 pr-6 py-2 rounded-full font-heading font-bold text-lg tracking-[0.08em] hover:opacity-90 transition-opacity"
           >
-            GENKOU
+            <span>GENKOU</span>
+            <span className="text-[#66D3FF] tracking-[0.2em]">STUDIO</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -74,12 +75,18 @@ export default function NavBar() {
               <a
                 key={item.href}
                 href={item.href}
-                className={`relative text-[#1B1B1B] font-medium transition-opacity opacity-70 hover:opacity-100 ${
-                  activeSection === item.id ? 'opacity-100 text-[#66D3FF]' : ''
-                }`}
+                onClick={(event) => {
+                  if (item.disabled) {
+                    event.preventDefault();
+                    setIsMenuOpen(false);
+                  }
+                }}
+                className={`relative text-[#1B1B1B] font-medium transition-opacity ${
+                  item.disabled ? 'opacity-50 cursor-default' : 'opacity-70 hover:opacity-100'
+                } ${activeSection === item.id ? 'opacity-100 text-[#66D3FF]' : ''}`}
               >
                 {item.label}
-                {activeSection === item.id && (
+                {!item.disabled && activeSection === item.id && (
                   <motion.div
                     layoutId="activeSection"
                     className="absolute -bottom-1 left-0 right-0 border-b-2 border-[#66D3FF]"
@@ -123,9 +130,19 @@ export default function NavBar() {
             <a
               key={item.href}
               href={item.href}
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(event) => {
+                if (item.disabled) {
+                  event.preventDefault();
+                } else {
+                  setIsMenuOpen(false);
+                }
+              }}
               className={`${
-                activeSection === item.id ? 'text-[#66D3FF]' : 'text-[#111]'
+                item.disabled
+                  ? 'text-[#111]/50 cursor-default'
+                  : activeSection === item.id
+                  ? 'text-[#66D3FF]'
+                  : 'text-[#111]'
               }`}
             >
               {item.label}

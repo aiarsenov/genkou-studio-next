@@ -567,14 +567,15 @@
   overflow: hidden;
   pointer-events: none;
   z-index: 5;
+  opacity: 0.45;
 }
 
 .blue-lines .line {
   position: absolute;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, rgba(102, 211, 255, 0), rgba(102, 211, 255, 0.55), rgba(102, 211, 255, 0));
-  filter: drop-shadow(0 0 6px rgba(102, 211, 255, 0.4));
+  background: linear-gradient(90deg, rgba(102, 211, 255, 0), rgba(102, 211, 255, 0.7), rgba(102, 211, 255, 0));
+  filter: drop-shadow(0 0 8px rgba(102, 211, 255, 0.35));
   animation: waveMove 12s ease-in-out infinite alternate;
 }
 
