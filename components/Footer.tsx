@@ -15,10 +15,10 @@ export default function Footer() {
           {/* Contacts */}
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 text-[#1B1B1B]">
             <a
-              href="tel:+79104320087"
+              href="tel:+79164780769"
               className="hover:text-[#66D3FF] transition-colors font-medium"
             >
-              +7 910 432 00 87
+              +7 916 478 07 69
             </a>
             <span className="hidden md:inline text-[#E5E5E5]">|</span>
             <a

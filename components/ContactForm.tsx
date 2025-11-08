@@ -142,8 +142,8 @@ export default function ContactForm() {
             ОСТАВЬТЕ ЗАЯВКУ И МЫ СДЕЛАЕМ ТАКОЙ ЖЕ КЛАССНЫЙ ПРОЕКТ
           </h2>
           <p className="text-[#6E7580]">
-            <a href="tel:+79104320087" className="hover:text-[#66D3FF] transition-colors font-medium">
-              +7 910 432 00 87
+            <a href="tel:+79164780769" className="hover:text-[#66D3FF] transition-colors font-medium">
+              +7 916 478 07 69
             </a>{' '}
             <span className="text-[#E5E5E5] mx-2">|</span>{' '}
             <a

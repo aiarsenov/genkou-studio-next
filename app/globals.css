@@ -566,7 +566,9 @@
   inset: 0;
   overflow: hidden;
   pointer-events: none;
-  z-index: 0;
+  z-index: 5;
+  mix-blend-mode: screen;
+  opacity: 0.9;
 }
 
 .blue-lines .line {

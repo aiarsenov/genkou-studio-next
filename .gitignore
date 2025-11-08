@@ -18,6 +18,9 @@
 # misc
 .DS_Store
 *.pem
+*.tar.gz
+deploy.tar.gz
+static-site.tar.gz
 
 # debug
 npm-debug.log*

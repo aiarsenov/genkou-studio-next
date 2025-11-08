@@ -134,7 +134,7 @@ NEXT_PUBLIC_FORMSPREE_ID=your-formspree-form-id
 
 ## 📞 Контакты
 
-- Телефон: +7 910 432 00 87
+- Телефон: +7 916 478 07 69
 - Email: hello@genkoustudio.ru
 - Сайт: https://genkoustudio.ru
 

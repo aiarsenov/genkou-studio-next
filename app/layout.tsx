@@ -64,7 +64,9 @@ export default function RootLayout({
     <html lang="ru" className={`${roboto.variable} ${robotoCondensed.variable}`}>
       <body className="antialiased">
         <BlueLines />
-        {children}
+        <div className="relative z-10">
+          {children}
+        </div>
         <CookieBanner />
       </body>
     </html>

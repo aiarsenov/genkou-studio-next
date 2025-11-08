@@ -49,7 +49,7 @@ export default function PrivacyPage() {
             </p>
             <ul className="list-disc pl-6 space-y-2">
               <li>Email: hello@genkoustudio.ru</li>
-              <li>Телефон: +7 910 432 00 87</li>
+              <li>Телефон: +7 916 478 07 69</li>
             </ul>
           </div>
           <div className="mt-12">
