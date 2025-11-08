@@ -16,14 +16,14 @@ export default function Hero() {
     >
       <NavBar />
 
-      <div className="w-full max-w-[1800px] mx-auto px-6 sm:px-12 lg:px-16 xl:px-24 pt-24 pb-20">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-12 lg:gap-[64px] items-center min-h-[calc(100vh-6rem)]">
           {/* Left: Image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="relative w-full max-w-[620px] aspect-square lg:aspect-[4/5] rounded-[24px] overflow-hidden shadow-lg lg:ml-auto"
+            className="relative w-full max-w-[620px] aspect-square lg:aspect-[4/5] rounded-[24px] overflow-hidden shadow-lg"
             style={{
               boxShadow: '0 10px 40px rgba(0,0,0,0.08)',
               animation: 'fadeIn 0.8s ease-in-out',
