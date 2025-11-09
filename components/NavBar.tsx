@@ -75,17 +75,17 @@ export default function NavBar() {
               <a
                 key={item.href}
                 href={item.href}
-                className={`relative text-[#101820] font-sans font-semibold tracking-[0.24em] uppercase text-[13px] transition-opacity ${
-                  activeSection === item.id ? 'opacity-100' : 'opacity-70 hover:opacity-100'
+                className={`relative text-[#101820] font-sans font-semibold text-[16px] tracking-[0.04em] transition-colors ${
+                  activeSection === item.id ? 'text-[#101820]' : 'text-[#101820]/70 hover:text-[#101820]'
                 }`}
               >
                 {item.label}
                 {activeSection === item.id && item.id !== 'contact-link' && (
                   <motion.div
                     layoutId="activeSection"
-                    className="absolute -bottom-2 left-0 right-0 h-[3px] bg-[#1B1B1B]"
+                    className="absolute -bottom-2 left-0 right-0 h-[3px] rounded-full bg-[#101820]"
                     initial={false}
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    transition={{ type: 'spring', stiffness: 420, damping: 35 }}
                   />
                 )}
               </a>
@@ -117,7 +117,7 @@ export default function NavBar() {
               key={item.href}
               href={item.href}
               onClick={() => setIsMenuOpen(false)}
-              className={`${activeSection === item.id ? 'text-[#66D3FF]' : 'text-[#111]'} font-sans font-semibold uppercase tracking-[0.24em]`}
+              className={`${activeSection === item.id ? 'text-[#66D3FF]' : 'text-[#111]'} font-sans font-semibold text-lg tracking-[0.08em]`}
             >
               {item.label}
             </a>
