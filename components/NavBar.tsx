@@ -118,7 +118,7 @@ export default function NavBar() {
         </nav>
       </motion.header>
 
-      <div className="hidden md:block absolute top-28 left-1/2 -translate-x-[calc(50%-240px)] w-[min(560px,60vw)] z-40">
+      <div className="hidden md:block absolute top-[15.25rem] left-[61%] -translate-x-1/2 w-[min(560px,60vw)] z-40">
         <nav className="flex items-center justify-between text-[#101820] font-sans font-semibold text-[17px] tracking-[0.05em]">
           {navItems.map((item) => (
             <a
