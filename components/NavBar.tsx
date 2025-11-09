@@ -59,23 +59,23 @@ export default function NavBar() {
         isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-[0_2px_10px_rgba(0,0,0,0.05)]' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl xl:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="max-w-7xl xl:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-8 sm:px-12 lg:px-16">
         <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link
             href="/"
-            className="text-[#1B1B1B] font-heading tracking-[0.12em] text-2xl lg:text-3xl uppercase hover:opacity-70 transition-opacity"
+            className="text-[#101820] font-heading tracking-[0.18em] text-[28px] lg:text-[32px] uppercase hover:opacity-80 transition-opacity"
           >
             GENKOU STUDIO
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-10 lg:space-x-14">
+          <nav className="hidden md:flex items-center space-x-12 lg:space-x-16">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className={`relative text-[#1B1B1B] font-heading tracking-[0.12em] uppercase transition-opacity ${
+                className={`relative text-[#101820] font-sans font-semibold tracking-[0.28em] uppercase text-[13px] transition-opacity ${
                   activeSection === item.id ? 'opacity-100' : 'opacity-70 hover:opacity-100'
                 }`}
               >
@@ -117,7 +117,7 @@ export default function NavBar() {
               key={item.href}
               href={item.href}
               onClick={() => setIsMenuOpen(false)}
-              className={`${activeSection === item.id ? 'text-[#66D3FF]' : 'text-[#111]'}`}
+              className={`${activeSection === item.id ? 'text-[#66D3FF]' : 'text-[#111]'} font-sans font-semibold uppercase tracking-[0.24em]`}
             >
               {item.label}
             </a>
