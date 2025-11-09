@@ -5,17 +5,13 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 export default function NavBar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-      
-      // Determine active section
-      const sections = ['hero', 'clients', 'portfolio', 'contacts'];
-      const scrollPosition = window.scrollY + 100;
+      const sections = ['hero', 'portfolio', 'contacts'];
+      const scrollPosition = window.scrollY + 120;
       
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
@@ -44,69 +40,84 @@ export default function NavBar() {
   }, [isMenuOpen]);
 
   const navItems = [
-    { href: '#clients', label: 'Клиенты', id: 'clients' },
-    { href: '#portfolio', label: 'Портфолио', id: 'portfolio' },
-    { href: '#contacts', label: 'Контакты', id: 'contacts' },
-    { href: '#contacts', label: 'Связаться', id: 'contact-link' },
+    { key: 'portfolio', href: '#portfolio', label: 'Портфолио', id: 'portfolio' },
+    { key: 'education', href: '#', label: 'Обучение', id: null, disabled: true },
+    { key: 'contacts', href: '#contacts', label: 'Контакты', id: 'contacts' },
+    { key: 'contact-cta', href: '#contacts', label: 'Связаться', id: 'contacts' },
   ];
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-[0_2px_10px_rgba(0,0,0,0.05)]' : 'bg-transparent'
-      }`}
-    >
-      <div className="max-w-7xl xl:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24">
-          {/* Logo */}
+    <>
+      <motion.div
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        className="absolute top-8 left-0 right-0 z-40 pointer-events-none"
+      >
+        <div className="max-w-7xl xl:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/"
-            className="text-[#101820] font-heading tracking-[0.15em] text-[26px] lg:text-[30px] uppercase hover:opacity-80 transition-opacity"
+            className="inline-block font-heading tracking-[0.2em] text-[26px] lg:text-[30px] uppercase text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.35)] pointer-events-auto"
           >
             GENKOU STUDIO
           </Link>
+        </div>
+      </motion.div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-12 lg:space-x-16">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className={`relative text-[#101820] font-sans font-semibold text-[16px] tracking-[0.04em] transition-colors ${
-                  activeSection === item.id ? 'text-[#101820]' : 'text-[#101820]/70 hover:text-[#101820]'
-                }`}
-              >
-                {item.label}
-                {activeSection === item.id && item.id !== 'contact-link' && (
-                  <motion.div
-                    layoutId="activeSection"
-                    className="absolute -bottom-2 left-0 right-0 h-[3px] rounded-full bg-[#101820]"
-                    initial={false}
-                    transition={{ type: 'spring', stiffness: 420, damping: 35 }}
-                  />
-                )}
-              </a>
-            ))}
-          </nav>
+      <motion.header
+        initial={{ y: -30, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.15, duration: 0.6, ease: 'easeOut' }}
+        className="relative z-30 mt-24"
+      >
+        <div className="max-w-7xl xl:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between md:justify-center">
+            <div className="md:hidden" />
+            <nav className="hidden md:flex items-center space-x-12 lg:space-x-16">
+              {navItems.map((item) => (
+                <a
+                  key={item.key}
+                  href={item.href}
+                  onClick={(event) => {
+                    if (item.disabled) {
+                      event.preventDefault();
+                    }
+                  }}
+                  className={`relative font-sans font-semibold text-[16px] tracking-[0.04em] transition-colors ${
+                    item.disabled
+                      ? 'text-[#101820]/40 cursor-default'
+                      : item.id && activeSection === item.id
+                      ? 'text-[#101820]'
+                      : 'text-[#101820]/70 hover:text-[#101820]'
+                  }`}
+                >
+                  {item.label}
+                  {item.id && activeSection === item.id && (
+                    <motion.div
+                      layoutId="activeSection"
+                      className="absolute -bottom-2 left-0 right-0 h-[3px] rounded-full bg-[#101820]"
+                      initial={false}
+                      transition={{ type: 'spring', stiffness: 420, damping: 35 }}
+                    />
+                  )}
+                </a>
+              ))}
+            </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            className={`burger ${isMenuOpen ? 'active' : ''}`}
-            aria-label="Toggle menu"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+            <button
+              className={`burger ${isMenuOpen ? 'active' : ''} md:hidden`}
+              aria-label="Toggle menu"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div 
+          <div
             className="mobile-menu-overlay fixed inset-0 bg-black/50 z-[999]"
             onClick={() => setIsMenuOpen(false)}
           />
@@ -114,17 +125,29 @@ export default function NavBar() {
         <nav className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
           {navItems.map((item) => (
             <a
-              key={item.href}
+              key={item.key}
               href={item.href}
-              onClick={() => setIsMenuOpen(false)}
-              className={`${activeSection === item.id ? 'text-[#66D3FF]' : 'text-[#111]'} font-sans font-semibold text-lg tracking-[0.08em]`}
+              onClick={(event) => {
+                if (item.disabled) {
+                  event.preventDefault();
+                } else {
+                  setIsMenuOpen(false);
+                }
+              }}
+              className={`font-sans font-semibold text-lg tracking-[0.08em] ${
+                item.disabled
+                  ? 'opacity-50 cursor-default'
+                  : item.id && activeSection === item.id
+                  ? 'text-[#66D3FF]'
+                  : 'text-[#111]'
+              }`}
             >
               {item.label}
             </a>
           ))}
         </nav>
-      </div>
-    </motion.header>
+      </motion.header>
+    </>
   );
 }
 
