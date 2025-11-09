@@ -14,7 +14,7 @@ export default function NavBar() {
       setIsScrolled(window.scrollY > 50);
       
       // Determine active section
-      const sections = ['hero', 'portfolio', 'contacts'];
+      const sections = ['hero', 'clients', 'portfolio', 'contacts'];
       const scrollPosition = window.scrollY + 100;
       
       for (const section of sections.reverse()) {
@@ -44,9 +44,10 @@ export default function NavBar() {
   }, [isMenuOpen]);
 
   const navItems = [
+    { href: '#clients', label: 'Клиенты', id: 'clients' },
     { href: '#portfolio', label: 'Портфолио', id: 'portfolio' },
     { href: '#contacts', label: 'Контакты', id: 'contacts' },
-    { href: '#', label: 'Обучение', id: 'education', disabled: true },
+    { href: '#contacts', label: 'Связаться', id: 'contact-link' },
   ];
 
   return (
@@ -58,52 +59,37 @@ export default function NavBar() {
         isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-[0_2px_10px_rgba(0,0,0,0.05)]' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl xl:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+      <div className="max-w-7xl xl:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-6 sm:px-10 lg:px-12">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 bg-[#1B1B1B] text-white pl-5 pr-6 py-2 rounded-full font-heading font-bold text-lg tracking-[0.08em] hover:opacity-90 transition-opacity"
+            className="text-[#1B1B1B] font-heading tracking-[0.12em] text-2xl lg:text-3xl uppercase hover:opacity-70 transition-opacity"
           >
-            <span>GENKOU</span>
-            <span className="text-[#66D3FF] tracking-[0.2em]">STUDIO</span>
+            GENKOU STUDIO
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-10 lg:space-x-14">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                onClick={(event) => {
-                  if (item.disabled) {
-                    event.preventDefault();
-                    setIsMenuOpen(false);
-                  }
-                }}
-                className={`relative text-[#1B1B1B] font-medium transition-opacity ${
-                  item.disabled ? 'opacity-50 cursor-default' : 'opacity-70 hover:opacity-100'
-                } ${activeSection === item.id ? 'opacity-100 text-[#66D3FF]' : ''}`}
+                className={`relative text-[#1B1B1B] font-heading tracking-[0.12em] uppercase transition-opacity ${
+                  activeSection === item.id ? 'opacity-100' : 'opacity-70 hover:opacity-100'
+                }`}
               >
                 {item.label}
-                {!item.disabled && activeSection === item.id && (
+                {activeSection === item.id && item.id !== 'contact-link' && (
                   <motion.div
                     layoutId="activeSection"
-                    className="absolute -bottom-1 left-0 right-0 border-b-2 border-[#66D3FF]"
+                    className="absolute -bottom-2 left-0 right-0 h-[3px] bg-[#1B1B1B]"
                     initial={false}
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
               </a>
             ))}
-            <motion.a
-              href="#contacts"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="bg-white text-[#1B1B1B] px-6 py-2.5 rounded-lg font-semibold hover:text-[#66D3FF] transition-colors"
-            >
-              Связаться
-            </motion.a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -130,31 +116,12 @@ export default function NavBar() {
             <a
               key={item.href}
               href={item.href}
-              onClick={(event) => {
-                if (item.disabled) {
-                  event.preventDefault();
-                } else {
-                  setIsMenuOpen(false);
-                }
-              }}
-              className={`${
-                item.disabled
-                  ? 'text-[#111]/50 cursor-default'
-                  : activeSection === item.id
-                  ? 'text-[#66D3FF]'
-                  : 'text-[#111]'
-              }`}
+              onClick={() => setIsMenuOpen(false)}
+              className={`${activeSection === item.id ? 'text-[#66D3FF]' : 'text-[#111]'}`}
             >
               {item.label}
             </a>
           ))}
-          <a
-            href="#contacts"
-            onClick={() => setIsMenuOpen(false)}
-            className="text-[#111]"
-          >
-            Связаться
-          </a>
         </nav>
       </div>
     </motion.header>

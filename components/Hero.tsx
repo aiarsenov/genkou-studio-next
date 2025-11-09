@@ -23,14 +23,13 @@ export default function Hero() {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="relative w-full max-w-[620px] xl:max-w-[680px] 2xl:max-w-[740px] aspect-square lg:aspect-[4/5] rounded-[24px] overflow-hidden shadow-lg"
+            className="relative w-full max-w-[620px] xl:max-w-[680px] 2xl:max-w-[740px] aspect-square lg:aspect-[4/5] rounded-[40px] overflow-hidden shadow-[0_30px_80px_rgba(12,23,42,0.25)]"
             style={{
-              boxShadow: '0 10px 40px rgba(0,0,0,0.08)',
               animation: 'fadeIn 0.8s ease-in-out',
             }}
           >
             <Image
-              src="/images/2025-10-28 18.00.28.jpg"
+              src="/images/hero-main.jpg"
               alt="3D Gecko mascot"
               fill
               className="object-cover"
@@ -48,32 +47,38 @@ export default function Hero() {
             {/* Headings */}
             <div className="flex flex-col gap-4">
               <h1
-                className="font-heading font-bold uppercase tracking-[0.02em] leading-[1.05] flex flex-col items-center lg:items-start"
-                style={{
-                  fontSize: 'clamp(64px, 8vw, 108px)',
-                }}
+                className="font-heading font-black uppercase tracking-[0.18em] leading-[1] text-[#101820] text-[clamp(48px,6vw,96px)]"
               >
-                <span className="text-[#1B1B1B]">AI</span>
-                <span className="ai-production">PRODUCTION</span>
+                AI PRODUCTION
               </h1>
               <h2
-                className="font-sans font-semibold uppercase tracking-[0.08em] text-[#1B1B1B] mt-6"
-                style={{
-                  fontSize: 'clamp(24px, 3.5vw, 40px)',
-                  letterSpacing: '0.12em',
-                }}
+                className="font-heading font-semibold uppercase tracking-[0.18em] text-[#101820] text-[clamp(22px,2.6vw,36px)]"
               >
                 СОЗДАЁМ КОНТЕНТ БУДУЩЕГО
               </h2>
               <p
-                className="font-sans font-normal text-[#444] mt-10 max-w-[640px] xl:max-w-[700px] 2xl:max-w-[760px] mx-auto lg:mx-0"
-                style={{
-                  fontSize: 'clamp(18px, 1.8vw, 22px)',
-                  lineHeight: '1.6',
-                }}
+                className="font-sans text-[#101820]/80 text-[clamp(16px,1.4vw,20px)] leading-[1.6] max-w-[640px] xl:max-w-[700px] 2xl:max-w-[760px] mx-auto lg:mx-0"
               >
-                Полный цикл AI-продакшна — от идеи и сценария до готового видео с моушн-дизайном и монтажом.
+                Полный цикл AI-продакшна — от идеи и сценария до готового видео с моушн-дизайном и монтажом. Мы создаём визуальные истории, которые работают на ваш бренд и задачи.
               </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-[720px]">
+              <div className="rounded-[28px] bg-[#0A1423] text-white px-8 py-10 flex flex-col gap-4 text-left shadow-[0_25px_60px_rgba(10,20,35,0.25)]">
+                <h3 className="font-heading uppercase tracking-[0.15em] text-sm text-[#7EC8FF]">Новый подход к созданию видео</h3>
+                <p className="text-[15px] leading-[1.7] text-white/85">
+                  Полный цикл AI-продакшна — от идеи и сценария до готового видео с моушн-дизайном и монтажом. Привлекаем внимание, усиливаем коммуникацию, ускоряем производство.
+                </p>
+              </div>
+              <div className="rounded-[28px] overflow-hidden shadow-[0_25px_60px_rgba(12,23,42,0.15)] h-full">
+                <Image
+                  src="/images/hero-card.png"
+                  alt="Деталь лапы геккона"
+                  width={480}
+                  height={360}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </motion.div>
         </div>
