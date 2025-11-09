@@ -59,12 +59,12 @@ export default function NavBar() {
         isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-[0_2px_10px_rgba(0,0,0,0.05)]' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl xl:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-8 sm:px-12 lg:px-16">
+      <div className="max-w-7xl xl:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link
             href="/"
-            className="text-[#101820] font-heading tracking-[0.18em] text-[28px] lg:text-[32px] uppercase hover:opacity-80 transition-opacity"
+            className="text-[#101820] font-heading tracking-[0.15em] text-[26px] lg:text-[30px] uppercase hover:opacity-80 transition-opacity"
           >
             GENKOU STUDIO
           </Link>
@@ -75,7 +75,7 @@ export default function NavBar() {
               <a
                 key={item.href}
                 href={item.href}
-                className={`relative text-[#101820] font-sans font-semibold tracking-[0.28em] uppercase text-[13px] transition-opacity ${
+                className={`relative text-[#101820] font-sans font-semibold tracking-[0.24em] uppercase text-[13px] transition-opacity ${
                   activeSection === item.id ? 'opacity-100' : 'opacity-70 hover:opacity-100'
                 }`}
               >
